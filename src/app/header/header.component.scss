@@ -1,13 +1,26 @@
-.header-content {
-  height: 80vh;
-  background: url("~/assets/background-min.jpg") no-repeat;
+.bg-image-full {
+  background-color: black;
+  background-image: url("~/assets/background-min.jpg");
   background-size: cover;
-  border-radius: 0 0 50% 50%;
+  height: 100vh;
+  clip-path: polygon(0 0, 100% 0%, 100% 50%, 0 90%);
   text-align: center;
-  padding: 100px;
-  color: #ffffff;
+  font-family: 'Baloo Bhaina 2';
+  color: #fff;
 
   h1 {
-    font-size: 5em;
+    margin-top: 50px;
+    font-size: 5rem;
+  }
+
+  h3 {
+    margin-top: 50px;
+    font-size: 2.2rem;
+  }
+
+  hr {
+    border: 2px solid #fff;
+    border-radius: 5px;
+    width: 33%;
   }
 }
