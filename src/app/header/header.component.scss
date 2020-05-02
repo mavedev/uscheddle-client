@@ -1,9 +1,8 @@
-.bg-image-full {
+.background-image {
   background-color: black;
   background-image: url("~/assets/background-min.jpg");
   background-size: cover;
-  height: 100vh;
-  clip-path: polygon(0 0, 100% 0%, 100% 50%, 0 90%);
+  height: 50vh;
   text-align: center;
   font-family: 'Baloo Bhaina 2';
   color: #fff;
