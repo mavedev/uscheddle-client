@@ -1,25 +1,27 @@
-.background-image {
-  background-color: black;
+$BACKGROUND_HEADER: rgb(78, 155, 218);
+$COLOR_EMPTY: #fff;
+
+.background-container {
+  color: $COLOR_EMPTY;
+  background-color: $BACKGROUND_HEADER;
   background-image: url("~/assets/background-min.jpg");
   background-size: cover;
-  height: 50vh;
   text-align: center;
   font-family: 'Baloo Bhaina 2';
-  color: #fff;
+}
 
-  h1 {
-    margin-top: 50px;
-    font-size: 5rem;
-  }
+.header-title {
+  margin-top: 50px;
+  font-size: 5rem;
+}
 
-  h3 {
-    margin-top: 50px;
-    font-size: 2.2rem;
-  }
+.header-subtitle {
+  margin-top: 50px;
+  font-size: 2.2rem;
+}
 
-  hr {
-    border: 2px solid #fff;
-    border-radius: 5px;
-    width: 33%;
-  }
+.header-separator {
+  border: 2px solid $COLOR_EMPTY;
+  border-radius: 5px;
+  width: 33%;
 }
