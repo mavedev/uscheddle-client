@@ -11,10 +11,10 @@ $diff-height-header: 195px;
     - #{$diff-height-navbar}
     - #{$diff-height-header}
   );
-  color: $color-empty;
   background-color: $color-background-header;
   background-image: url("~/assets/background-min.jpg");
   background-size: cover;
+  color: $color-empty;
   text-align: center;
   font-family: 'Baloo Bhaina 2';
 }
@@ -33,4 +33,9 @@ $diff-height-header: 195px;
   border: 2px solid $color-empty;
   border-radius: 5px;
   width: 33%;
+}
+
+.image-demo {
+  width: 700px;
+  height: 700px;
 }
