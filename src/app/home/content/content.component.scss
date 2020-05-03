@@ -1,6 +1,7 @@
 // Colors.
 $color-background-header: rgb(78, 155, 218);
 $color-empty: #fff;
+$color-card-background: #408AD2;
 
 // Sizes.
 $height-image-demo: 50vw;
@@ -72,6 +73,7 @@ $font-size-default-header: 5rem;
   justify-content: space-evenly;
   margin-top: $margin-top-default;
   margin-bottom: $margin-top-default;
+  text-transform: uppercase;
 }
 
 .cards-about__card-wrapper {
@@ -79,5 +81,21 @@ $font-size-default-header: 5rem;
 }
 
 .card {
+  align-items: center;
   width: $width-card-default;
+  background-color: $color-card-background;
+}
+
+.card__image-wrapper {
+  padding-top: calc(#{$margin-top-default} - 30px);
+}
+
+.card__description-block {
+  color: $color-empty!important;
+  min-height: 50px;
+}
+
+.card-img-top {
+  width: 50%;
+  height: 50%;
 }
