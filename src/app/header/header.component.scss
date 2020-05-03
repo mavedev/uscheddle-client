@@ -1,9 +1,18 @@
-$BACKGROUND_HEADER: rgb(78, 155, 218);
-$COLOR_EMPTY: #fff;
+// General attributes.
+$color-background-header: rgb(78, 155, 218);
+$color-empty: #fff;
+// Relative attributes.
+$diff-height-navbar: 56px;
+$diff-height-header: 195px;
 
 .background-container {
-  color: $COLOR_EMPTY;
-  background-color: $BACKGROUND_HEADER;
+  min-height: calc(
+    100vh
+    - #{$diff-height-navbar}
+    - #{$diff-height-header}
+  );
+  color: $color-empty;
+  background-color: $color-background-header;
   background-image: url("~/assets/background-min.jpg");
   background-size: cover;
   text-align: center;
@@ -21,7 +30,7 @@ $COLOR_EMPTY: #fff;
 }
 
 .header-separator {
-  border: 2px solid $COLOR_EMPTY;
+  border: 2px solid $color-empty;
   border-radius: 5px;
   width: 33%;
 }
