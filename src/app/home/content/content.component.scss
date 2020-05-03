@@ -14,7 +14,7 @@ $border-radius-default: 5px;
 $font-size-default-header: 5rem;
 
 @media only screen and (max-width: 960px) {
-  .cards-about {
+  .cards-container {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -25,7 +25,7 @@ $font-size-default-header: 5rem;
     height: 100vw!important;
   }
 
-  .cards-about__card-wrapper {
+  .cards-container__card-wrapper {
     margin-top: 20px;
   }
 
@@ -36,7 +36,7 @@ $font-size-default-header: 5rem;
 
 .background-container {
   background-color: $color-background-header;
-  background-image: url("~/assets/background-min.jpg");
+  background-image: url("~/assets/mx2-min.jpg");
   background-size: cover;
   color: $color-empty;
   text-align: center;
@@ -66,9 +66,14 @@ $font-size-default-header: 5rem;
 .image-demo__content {
   width: $width-image-demo;
   height: $height-image-demo;
+  transition: all .2s ease-in-out;
 }
 
-.cards-about {
+.image-demo__content:hover {
+  transform: scale(1.1);
+}
+
+.cards-container {
   display: flex;
   justify-content: space-evenly;
   margin-top: $margin-top-default;
@@ -76,14 +81,19 @@ $font-size-default-header: 5rem;
   text-transform: uppercase;
 }
 
-.cards-about__card-wrapper {
-  margin-top: calc(#{$margin-top-default} - 30px);
+.cards-container__card-wrapper {
+  margin-top: calc(#{$margin-top-default} - 10px);
 }
 
 .card {
   align-items: center;
   width: $width-card-default;
   background-color: $color-card-background;
+  transition: all .2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.1);
 }
 
 .card__image-wrapper {
