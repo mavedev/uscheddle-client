@@ -6,11 +6,11 @@ $diff-height-navbar: 56px;
 $diff-height-header: 195px;
 
 .background-container {
-  min-height: calc(
-    100vh
-    - #{$diff-height-navbar}
-    - #{$diff-height-header}
-  );
+  // min-height: calc(
+  //   100vh
+  //   - #{$diff-height-navbar}
+  //   - #{$diff-height-header}
+  // );
   background-color: $color-background-header;
   background-image: url("~/assets/background-min.jpg");
   background-size: cover;
