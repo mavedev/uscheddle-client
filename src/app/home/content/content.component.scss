@@ -18,7 +18,6 @@ $color-empty: #fff;
   }
 }
 
-
 .background-container {
   background-color: $color-background-header;
   background-image: url("~/assets/background-min.jpg");
@@ -49,8 +48,8 @@ $color-empty: #fff;
 }
 
 .image-demo__content {
-  width: 640px;
-  height: 360px;
+  width: 50vw;
+  height: 60vh;
 }
 
 .cards-about {
