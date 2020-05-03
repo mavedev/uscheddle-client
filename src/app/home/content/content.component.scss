@@ -1,16 +1,25 @@
 // General attributes.
 $color-background-header: rgb(78, 155, 218);
 $color-empty: #fff;
-// Relative attributes.
-$diff-height-navbar: 56px;
-$diff-height-header: 195px;
+
+@media only screen and (max-width: 960px) {
+  .cards-about {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .cards-about__card-wrapper {
+    margin-top: 20px;
+  }
+
+  .card {
+    min-width: 60vw;
+  }
+}
+
 
 .background-container {
-  // min-height: calc(
-  //   100vh
-  //   - #{$diff-height-navbar}
-  //   - #{$diff-height-header}
-  // );
   background-color: $color-background-header;
   background-image: url("~/assets/background-min.jpg");
   background-size: cover;
@@ -36,6 +45,25 @@ $diff-height-header: 195px;
 }
 
 .image-demo {
-  width: 700px;
-  height: 700px;
+  margin-top: 4em;
+}
+
+.image-demo__content {
+  width: 640px;
+  height: 360px;
+}
+
+.cards-about {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.cards-about__card-wrapper {
+  margin-top: 20px;
+}
+
+.card {
+  width: 25vw;
 }
