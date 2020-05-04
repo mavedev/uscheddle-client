@@ -8,8 +8,9 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeContentComponent } from './home/content/content.component';
 import { HomeComponent } from './home/home.component';
 import { SchedlistComponent } from './schedlist/schedlist.component';
-import { ContentComponent } from './schedlist/content/content.component';
+import { SchedlistContentComponent } from './schedlist/content/content.component';
 import { MainRequestPageComponent } from './main-request-page/main-request-page.component';
+import { MainRequestPageContentComponent } from './main-request-page/content/content.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,9 @@ import { MainRequestPageComponent } from './main-request-page/main-request-page.
     HomeContentComponent,
     HomeComponent,
     SchedlistComponent,
-    ContentComponent,
-    MainRequestPageComponent
+    SchedlistContentComponent,
+    MainRequestPageComponent,
+    MainRequestPageContentComponent
   ],
   imports: [
     BrowserModule,

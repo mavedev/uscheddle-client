@@ -7,7 +7,7 @@ import 'datatables';
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.scss']
 })
-export class ContentComponent implements OnInit {
+export class SchedlistContentComponent implements OnInit {
 
   names: Array<string> = ['A', 'B', 'f'];
 
