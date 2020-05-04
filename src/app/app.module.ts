@@ -7,6 +7,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeContentComponent } from './home/content/content.component';
 import { HomeComponent } from './home/home.component';
+import { SchedlistComponent } from './schedlist/schedlist.component';
+import { ContentComponent } from './schedlist/content/content.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { HomeComponent } from './home/home.component';
     NavbarComponent,
     FooterComponent,
     HomeContentComponent,
-    HomeComponent
+    HomeComponent,
+    SchedlistComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,
