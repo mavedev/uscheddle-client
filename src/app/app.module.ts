@@ -9,6 +9,7 @@ import { HomeContentComponent } from './home/content/content.component';
 import { HomeComponent } from './home/home.component';
 import { SchedlistComponent } from './schedlist/schedlist.component';
 import { ContentComponent } from './schedlist/content/content.component';
+import { MainRequestPageComponent } from './main-request-page/main-request-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ContentComponent } from './schedlist/content/content.component';
     HomeContentComponent,
     HomeComponent,
     SchedlistComponent,
-    ContentComponent
+    ContentComponent,
+    MainRequestPageComponent
   ],
   imports: [
     BrowserModule,
