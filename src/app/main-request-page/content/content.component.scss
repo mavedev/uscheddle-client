@@ -29,11 +29,31 @@ $font-size-default-header: 2rem;
   font-size: $font-size-default-header;
 }
 
+.generate-form-wrapper_centered {
+  margin: $margin-top-default;
+  text-align: center;
+}
+
+.generate-form-wrapper__title {
+  color: #000;
+  border-bottom: 1px solid #000
+}
+
 .main {
   background-color: $color-empty;
   min-height: 100vh;
 }
 
+.main_centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .py-5_without-padding-below {
   padding-bottom: 0!important;
+}
+
+.btn_tall {
+  margin-top: $margin-top-default;
 }
