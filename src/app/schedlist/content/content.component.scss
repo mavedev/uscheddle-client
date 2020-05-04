@@ -37,3 +37,9 @@ $font-size-default-header: 2rem;
 .py-5_without-padding-below {
   padding-bottom: 0!important;
 }
+
+.gen-button-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: $margin-top-default;
+}
