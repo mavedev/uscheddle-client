@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import $ from 'jquery';
+import $ from 'jquery'; // For MDBootstrap + datatables.
 import 'datatables';
 
 @Component({
@@ -9,11 +9,19 @@ import 'datatables';
 })
 export class ContentComponent implements OnInit {
 
+  names: Array<string> = ['A', 'B', 'f'];
+
   constructor() { }
 
   ngOnInit(): void {
-    $('.dt-schedules').DataTable();
+    // JQuery needed to use datatables with MDBootstrap.
+    // FIXME: remove JQuery at the next version.
+    const table: any = $('.dt-schedules').DataTable();
     $('.dataTables_length').addClass('bs-select');
+
+    this.names.forEach(value => {
+      table.row.add(value).draw();
+    });
   }
 
 }
