@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import $ from 'jquery'; // For MDBootstrap + datatables.
-import 'datatables';
+
+declare const $: any;
 
 @Component({
   selector: 'app-schedlist-content',

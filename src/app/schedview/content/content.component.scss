@@ -37,3 +37,12 @@ $font-size-default-header: 2rem;
 .py-5_without-padding-below {
   padding-bottom: 0!important;
 }
+
+.dt-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.dt-wrapper__spaced {
+  padding-top: $margin-top-default;
+}
