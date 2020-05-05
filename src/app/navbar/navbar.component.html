@@ -27,6 +27,12 @@
       <li class="nav-item nav-item_wide">
         <a class="nav-link" href="#">Contacts</a>
       </li>
+      <li *ngIf="isAuthentified" class="nav-item nav-item_wide">
+        <a class="nav-link" href="#">Log out</a>
+      </li>
+      <li *ngIf="!isAuthentified" class="nav-item nav-item_wide">
+        <a class="nav-link" href="#">Sign in with Office 365</a>
+      </li>
     </ul>
     <!-- Links -->
 
