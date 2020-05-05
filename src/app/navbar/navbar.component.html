@@ -28,7 +28,7 @@
         <a class="nav-link" href="#">Contacts</a>
       </li>
       <li *ngIf="isAuthentified" class="nav-item nav-item_wide">
-        <a class="nav-link" href="#">Log out</a>
+        <a class="nav-link" (click)="logout($event)">Log out</a>
       </li>
       <li *ngIf="!isAuthentified" class="nav-item nav-item_wide">
         <a class="nav-link" href="schedlist">Sign in with Office 365</a>

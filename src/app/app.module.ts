@@ -34,7 +34,10 @@ import { ShedviewContentComponent } from './schedview/content/content.component'
     AppRoutingModule,
     MsalModule.forRoot({
       auth: {
-          clientId: environment.appMSALClientLID
+          clientId: environment.appMSALClientLID,
+          authority: 'https://login.microsoftonline.com/common',
+          redirectUri: `${environment.appURI}/schedlist`,
+          postLogoutRedirectUri: environment.appURI
       }
     }, {
       consentScopes: ['https://graph.microsoft.com/User.ReadWrite']
@@ -43,4 +46,8 @@ import { ShedviewContentComponent } from './schedview/content/content.component'
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  isAuthentified = false;
+
+}
