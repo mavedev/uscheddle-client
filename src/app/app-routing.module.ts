@@ -15,8 +15,20 @@ const routes: Routes = [
       MsalGuard
     ]
   },
-  { path: 'schedview', component: SchedviewComponent },
-  { path: 'main-request', component: MainRequestPageComponent }
+  {
+    path: 'schedview',
+    component: SchedviewComponent,
+    canActivate: [
+      MsalGuard
+    ]
+  },
+  {
+    path: 'main-request',
+    component: MainRequestPageComponent,
+    canActivate: [
+      MsalGuard
+    ]
+  }
 ];
 
 @NgModule({
