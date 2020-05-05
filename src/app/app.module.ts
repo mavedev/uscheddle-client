@@ -46,8 +46,4 @@ import { ShedviewContentComponent } from './schedview/content/content.component'
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-
-  isAuthentified = false;
-
-}
+export class AppModule { }
