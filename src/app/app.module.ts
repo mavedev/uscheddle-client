@@ -34,7 +34,7 @@ import { ShedviewContentComponent } from './schedview/content/content.component'
     AppRoutingModule,
     MsalModule.forRoot({
       auth: {
-          clientId: ''
+          clientId: environment.appMSALClientLID
       }
     })
   ],
