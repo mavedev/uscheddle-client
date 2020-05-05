@@ -4,10 +4,17 @@ import { HomeComponent } from './home/home.component';
 import { SchedlistComponent } from './schedlist/schedlist.component';
 import { SchedviewComponent } from './schedview/schedview.component';
 import { MainRequestPageComponent } from './main-request-page/main-request-page.component';
+import { MsalGuard } from '@azure/msal-angular';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'schedlist', component: SchedlistComponent },
+  {
+    path: 'schedlist',
+    component: SchedlistComponent,
+    canActivate: [
+      MsalGuard
+    ]
+  },
   { path: 'schedview', component: SchedviewComponent },
   { path: 'main-request', component: MainRequestPageComponent }
 ];

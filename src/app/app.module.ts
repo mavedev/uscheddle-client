@@ -36,6 +36,8 @@ import { ShedviewContentComponent } from './schedview/content/content.component'
       auth: {
           clientId: environment.appMSALClientLID
       }
+    }, {
+      consentScopes: ['https://graph.microsoft.com/User.ReadWrite']
     })
   ],
   providers: [],
