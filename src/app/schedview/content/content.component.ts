@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-declare const $: any;
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-schedview-content',
@@ -9,10 +8,19 @@ declare const $: any;
 })
 export class ShedviewContentComponent implements OnInit {
 
-  constructor() { }
+  private scheduleId: string;
+  private userId: string;
 
-  ngOnInit(): void {
-    $('#t1').SetEditable();
+  public constructor(private route: ActivatedRoute) { }
+
+  public ngOnInit(): void {
+    this.scheduleId = this.route.snapshot.paramMap.get('id');
+    this.userId = this.getUserId();
+    alert([this.scheduleId, this.userId]);
+  }
+
+  private getUserId(): string {
+    return 'dummyUser';
   }
 
 }

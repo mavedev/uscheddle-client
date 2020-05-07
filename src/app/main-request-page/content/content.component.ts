@@ -1,6 +1,7 @@
 import { environment } from './../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-request-page-content',
@@ -45,7 +46,7 @@ export class MainRequestPageContentComponent implements OnInit {
     minInGroup: 10
 } as const;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -55,7 +56,9 @@ export class MainRequestPageContentComponent implements OnInit {
       headers: { 'Content-Type': 'application/json' }
     })
     .subscribe({
-      next: (data: any[]) => alert(JSON.stringify(data)),
+      next: (data: any) => {
+        this.router.navigate(['/schedview'], data.id);
+      },
       error: error => {
         this.errorText = this.errors[error.status];
       }

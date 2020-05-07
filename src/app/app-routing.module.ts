@@ -16,7 +16,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'schedview',
+    path: 'schedview/:id',
     component: SchedviewComponent,
     canActivate: [
       MsalGuard
