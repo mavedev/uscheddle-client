@@ -57,7 +57,7 @@ export class MainRequestPageContentComponent implements OnInit {
     })
     .subscribe({
       next: (data: any) => {
-        this.router.navigate(['/schedview'], data.id);
+        this.router.navigate(['/schedview', data.id]);
       },
       error: error => {
         this.errorText = this.errors[error.status];
