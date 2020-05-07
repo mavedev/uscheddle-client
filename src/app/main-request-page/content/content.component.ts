@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class MainRequestPageContentComponent implements OnInit {
 
-  errorText = '';
+  public errorText = '';
   private errors = {
     0: 'Connection refused. Please check your Internet connectivity',
     400: 'Server responded with "bad request". Please, check all the fields',
@@ -46,12 +46,12 @@ export class MainRequestPageContentComponent implements OnInit {
     minInGroup: 10
 } as const;
 
-  constructor(private httpClient: HttpClient, private router: Router) { }
+  public constructor(private httpClient: HttpClient, private router: Router) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
-  sendGenerateRequest(): void {
+  public sendGenerateRequest(): void {
     this.httpClient.post(this.createURL, this.testRequest, {
       headers: { 'Content-Type': 'application/json' }
     })
