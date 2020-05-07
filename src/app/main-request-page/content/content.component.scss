@@ -59,6 +59,9 @@ $font-size-default-header: 2rem;
 }
 
 .error-text-wrapper {
+  display: flex;
+  justify-content: center;
   color: red;
   margin-top: $margin-top-default;
+  text-align: center;
 }
