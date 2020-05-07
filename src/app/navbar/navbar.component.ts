@@ -9,14 +9,14 @@ import { MsalService } from '@azure/msal-angular';
 export class NavbarComponent implements OnInit {
 
   @Input()
-  isAuthentified = true;
+  public isAuthentified = true;
 
-  constructor(private authService: MsalService) { }
+  public constructor(private authService: MsalService) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
   }
 
-  logout(): void {
+  public logout(): void {
     this.authService.logout();
   }
 
