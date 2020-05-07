@@ -1,8 +1,6 @@
 import { environment } from './../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, retry } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-main-request-page-content',
@@ -21,7 +19,7 @@ export class MainRequestPageContentComponent implements OnInit {
   private testRequest = {
     courses: [
         {
-            // courseName: 'name',
+            courseName: 'name',
             courseClassesType: 'lecture',
             courseInstructor: [
                 'teacher1'
@@ -50,15 +48,6 @@ export class MainRequestPageContentComponent implements OnInit {
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
-  }
-
-  private handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
-      alert('A client-side error occured. Check your Internet connection');
-    } else {
-      alert(`The service responsed with an error\n${error.error.message}`);
-    }
-    // return throwError('');
   }
 
   sendGenerateRequest(): void {
