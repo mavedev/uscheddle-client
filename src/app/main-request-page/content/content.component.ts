@@ -1,5 +1,6 @@
 import { environment } from './../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
+import { MsalService } from '@azure/msal-angular';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -46,7 +47,11 @@ export class MainRequestPageContentComponent implements OnInit {
     minInGroup: 10
 } as const;
 
-  public constructor(private httpClient: HttpClient, private router: Router) { }
+  public constructor(
+    private authService: MsalService,
+    private httpClient: HttpClient,
+    private router: Router
+  ) { }
 
   public ngOnInit(): void {
   }

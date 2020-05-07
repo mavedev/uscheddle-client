@@ -12,7 +12,10 @@ export class ShedviewContentComponent implements OnInit {
   private scheduleId: string;
   private userId: string;
 
-  public constructor(private route: ActivatedRoute, private authService: MsalService) { }
+  public constructor(
+    private route: ActivatedRoute,
+    private authService: MsalService
+  ) { }
 
   public ngOnInit(): void {
     this.scheduleId = this.route.snapshot.paramMap.get('id');
