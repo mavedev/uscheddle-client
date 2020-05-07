@@ -11,12 +11,17 @@ import { throwError } from 'rxjs';
 })
 export class MainRequestPageContentComponent implements OnInit {
 
-  errorText = 'error';
+  errorText = '';
+  private errors = {
+    0: 'Connection refused. Please check your Internet connectivity',
+    400: 'Server responded with "bad request". Please, check all the fields',
+    500: 'The server is anavailible at the moment. Please, try again later'
+  };
   private createURL = `${environment.apiURI}/generate`;
   private testRequest = {
     courses: [
         {
-            courseName: 'name',
+            // courseName: 'name',
             courseClassesType: 'lecture',
             courseInstructor: [
                 'teacher1'
@@ -62,7 +67,9 @@ export class MainRequestPageContentComponent implements OnInit {
     })
     .subscribe({
       next: (data: any[]) => alert(JSON.stringify(data)),
-      error: error => alert(JSON.stringify(error))
+      error: error => {
+        this.errorText = this.errors[error.status];
+      }
     });
   }
 
