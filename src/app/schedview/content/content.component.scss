@@ -53,6 +53,10 @@ $font-size-default-header: 2rem;
   padding-top: $margin-top-default;
 }
 
+.tables-wrapper {
+  padding-bottom: calc(#{$margin-top-default} * 2);
+}
+
 .schedule-table {
   color: #000000;
   display: flex;
