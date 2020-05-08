@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { MsalService } from '@azure/msal-angular';
 import { HttpClient } from '@angular/common/http';
 
+declare const jexcel: any;
+
 @Component({
   selector: 'app-schedview-content',
   templateUrl: './content.component.html',
