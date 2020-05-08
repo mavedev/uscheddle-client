@@ -68,8 +68,16 @@ $font-size-default-header: 2rem;
   text-align: center;
 }
 
-.separate-input-wrapper_tall {
-  padding-top: $margin-top-default;
+.separate-input-wrapper {
+  border: none;
+}
+
+.separate-input-wrapper__item_wide {
+  width: 100%;
+}
+
+.md-form_adjusted {
+  width: 50vw;
 }
 
 .main-form_adjusted {
