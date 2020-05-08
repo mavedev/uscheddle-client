@@ -42,7 +42,7 @@ export class MainRequestPageContentComponent implements OnInit {
       courseType: ['', [Validators.required]],
       instructors: ['', [
           Validators.required,
-          Validators.pattern(/^\w+(,\w+)*$/)
+          Validators.pattern(/^\s*\w+(,\s*\w+)*\s*$/)
         ]
       ],
       hours: [0, [
@@ -123,13 +123,22 @@ export class MainRequestPageContentComponent implements OnInit {
     } as const;
   }
 
+  private getSeparetedInstructors(instructors: string): string[] {
+    const trimmed = instructors.replace(/\s+/g, ' ').trim();
+  }
+
   public sendGenerateRequest(): void {
     if (!this.areAllTheFormsValid()) {
       this.errorText = this.invalidErrorText;
       return;
+    } else {
+      this.errorText = '';
     }
 
-    this.httpClient.post(this.createURL, this.getRequestBody(), {
+    const body = this.getRequestBody();
+    alert(JSON.stringify(body));
+
+    this.httpClient.post(this.createURL, body, {
       headers: { 'Content-Type': 'application/json' }
     })
     .subscribe({
