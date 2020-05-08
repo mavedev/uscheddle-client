@@ -48,9 +48,11 @@ export class ShedviewContentComponent implements OnInit {
     this.isAbleToEdit = scheduleData.editable;
     [ 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ].forEach(day => {
       const table = jexcel(document.getElementById(day.toLowerCase()), {
+        tableOverflow: true,
+        tableWidth: '800px',
         data: scheduleData[day.toLowerCase()],
         columns: this.columns,
-        nestedHeaders: [{ title: day, colspan: 6 }]
+        nestedHeaders: [{ title: day, colspan: 6 }],
       });
       table.hideIndex();
       this.tables.push({ [day]: table });

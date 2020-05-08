@@ -55,6 +55,8 @@ $font-size-default-header: 2rem;
 
 .schedule-table {
   color: #000000;
+  display: flex;
+  justify-content: center;
 }
 
 .edit-button-wrapper_with-spaces {
