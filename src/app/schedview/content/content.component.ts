@@ -23,9 +23,9 @@ export class ShedviewContentComponent implements OnInit {
       { type: 'text', title: 'Classroom', width: 120 },
   ];
 
-
   private scheduleId: string;
   private userId: string;
+  private tables: any[] = [];
 
   public scheduleName = '';
   public isAbleToLoad = true;
@@ -44,12 +44,15 @@ export class ShedviewContentComponent implements OnInit {
 
   private fillTables(scheduleData: any): void {
     this.scheduleName = scheduleData.name;
-    const table = jexcel(document.getElementById('mon'), {
-      data: scheduleData.mon,
-      columns: this.columns,
-      nestedHeaders: [{ title: 'Mon', colspan: 6 }]
+    [ 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ].forEach(day => {
+      const table = jexcel(document.getElementById(day.toLowerCase()), {
+        data: scheduleData[day.toLowerCase()],
+        columns: this.columns,
+        nestedHeaders: [{ title: day, colspan: 6 }]
+      });
+      table.hideIndex();
+      this.tables.push({ [day]: table });
     });
-    table.hideIndex();
   }
 
   private getScheduleData(): void {
