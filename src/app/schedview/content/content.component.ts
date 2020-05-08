@@ -14,6 +14,15 @@ declare const jexcel: any;
 export class ShedviewContentComponent implements OnInit {
 
   private readonly apiReadURL = `${environment.apiURI}/schedule`;
+  private readonly columns = [
+      { type: 'text', title: 'Time', width: 120 },
+      { type: 'text', title: 'Course', width: 120 },
+      { type: 'text', title: 'Instructor', width: 120 },
+      { type: 'text', title: 'Group', width: 120 },
+      { type: 'text', title: 'Weeks', width: 120 },
+      { type: 'text', title: 'Classroom', width: 120 },
+  ];
+
 
   private scheduleId: string;
   private userId: string;
@@ -36,50 +45,9 @@ export class ShedviewContentComponent implements OnInit {
   private fillTables(scheduleData: any): void {
     this.scheduleName = scheduleData.name;
     const table = jexcel(document.getElementById('mon'), {
-      data: [
-        ['13:30-15:00', 'Бази даних', 'Гулаєва Н.М.', '1', '1-14', '1-223'],
-        ['13:30-15:00', 'Бази даних', 'Гулаєва Н.М.', '1', '1-14', '1-223'],
-        ['13:30-15:00', 'Бази даних', 'Гулаєва Н.М.', '1', '1-14', '1-223'],
-        ['13:30-15:00', 'Бази даних', 'Гулаєва Н.М.', '1', '1-14', '1-223'],
-      ],
-      columns: [
-        {
-            type: 'text',
-            title: 'Time',
-            width: 120
-        },
-        {
-            type: 'text',
-            title: 'Course',
-            width: 120
-        },
-        {
-            type: 'text',
-            title: 'Instructor',
-            width: 120
-        },
-        {
-            type: 'text',
-            title: 'Group',
-            width: 120
-        },
-        {
-            type: 'text',
-            title: 'Weeks',
-            width: 120
-        },
-        {
-            type: 'text',
-            title: 'Classroom',
-            width: 120
-        },
-     ],
-     nestedHeaders: [
-        {
-            title: 'Mon',
-            colspan: 6
-        }
-     ]
+      data: scheduleData.mon,
+      columns: this.columns,
+      nestedHeaders: [{ title: 'Mon', colspan: 6 }]
     });
     table.hideIndex();
   }
