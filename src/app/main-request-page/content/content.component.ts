@@ -110,8 +110,12 @@ export class MainRequestPageContentComponent implements OnInit {
 
   private getRequestBody(): any {
     return {
+      name: this.scheduleNameValue.value,
+      ownerId: '',
       courses: this.coursesArray.value,
-      classrooms: this.classroomsArray.value
+      classrooms: this.classroomsArray.value,
+      students: this.studentsValue.value,
+      minInGroup: this.minInGroupValue.value
     } as const;
   }
 
