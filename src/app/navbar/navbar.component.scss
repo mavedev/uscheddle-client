@@ -1,9 +1,9 @@
-@media only screen and (max-width: 575px) {
-  .no-margin-left {
-    margin-left: 0!important;
-  }
-}
-
 .nav-item_wide {
   margin-left: 20px;
+}
+
+.search-wrapper {
+  display: flex;
+  justify-content: left;
+  flex-wrap: nowrap;
 }
