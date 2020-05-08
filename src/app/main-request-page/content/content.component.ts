@@ -3,9 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MsalService } from '@azure/msal-angular';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
-import { Course } from './models/course.model';
-import { Classroom } from './models/classroom.model';
+import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-main-request-page-content',
