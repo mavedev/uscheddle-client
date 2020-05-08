@@ -29,6 +29,7 @@ export class ShedviewContentComponent implements OnInit {
 
   public scheduleName = '';
   public isAbleToLoad = true;
+  public isAbleToEdit = false;
 
   public constructor(
     private route: ActivatedRoute,
@@ -44,6 +45,7 @@ export class ShedviewContentComponent implements OnInit {
 
   private fillTables(scheduleData: any): void {
     this.scheduleName = scheduleData.name;
+    this.isAbleToEdit = scheduleData.editable;
     [ 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ].forEach(day => {
       const table = jexcel(document.getElementById(day.toLowerCase()), {
         data: scheduleData[day.toLowerCase()],
