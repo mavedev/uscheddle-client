@@ -33,14 +33,53 @@ export class ShedviewContentComponent implements OnInit, AfterViewInit {
   }
 
   public ngAfterViewInit(): void {
-    jexcel(document.getElementById('schedule-table'), {
-      data: [[]],
-      columns: [
-        { type: 'dropdown', width: '100px', source: ['Y', 'N'] },
-        { type: 'color', width: '100px', render: 'square' }
+    const table = jexcel(document.getElementById('schedule-table'), {
+      data: [
+        ['13:30-15:00', 'Бази даних', 'Гулаєва Н.М.', '1', '1-14', '1-223'],
+        ['13:30-15:00', 'Бази даних', 'Гулаєва Н.М.', '1', '1-14', '1-223'],
+        ['13:30-15:00', 'Бази даних', 'Гулаєва Н.М.', '1', '1-14', '1-223'],
+        ['13:30-15:00', 'Бази даних', 'Гулаєва Н.М.', '1', '1-14', '1-223'],
       ],
-      minDimensions: [10, 10]
+      columns: [
+        {
+            type: 'text',
+            title: 'Time',
+            width: 120
+        },
+        {
+            type: 'text',
+            title: 'Course',
+            width: 120
+        },
+        {
+            type: 'text',
+            title: 'Instructor',
+            width: 120
+        },
+        {
+            type: 'text',
+            title: 'Group',
+            width: 120
+        },
+        {
+            type: 'text',
+            title: 'Weeks',
+            width: 120
+        },
+        {
+            type: 'text',
+            title: 'Classroom',
+            width: 120
+        },
+     ],
+     nestedHeaders: [
+        {
+            title: 'Mon',
+            colspan: 6
+        }
+     ]
     });
+    table.hideIndex();
   }
 
   private getScheduleData(): void {
