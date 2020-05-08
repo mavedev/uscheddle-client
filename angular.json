@@ -29,9 +29,9 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/assets/vendor/css/jsuites.min.css",
-              "src/assets/vendor/css/jexcel.min.css",
-              "src/assets/vendor/css/jdatatables.min.css"
+              "src/assets/vendor/css/jsuites.min.scss",
+              "src/assets/vendor/css/jexcel.min.scss",
+              "src/assets/vendor/css/jdatatables.min.scss"
             ],
             "scripts": [
               "src/assets/vendor/scripts/jsuites.min.js",
