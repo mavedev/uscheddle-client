@@ -28,12 +28,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/vendor/jsuites.min.css",
+              "src/assets/vendor/jexcel.min.css",
+              "src/assets/vendor/jdatatables.min.css"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/datatables/media/js/jquery.dataTables.min.js",
-              "src/assets/vendor/scripts/bootstable.min.js"
+              "src/assets/vendor/jsuites.min.js",
+              "src/assets/vendor/jexcel.min.js"
             ]
           },
           "configurations": {
