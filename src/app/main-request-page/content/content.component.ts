@@ -108,10 +108,14 @@ export class MainRequestPageContentComponent implements OnInit {
       && this.minInGroupValue.status === 'VALID';
   }
 
+  private getUserId(): string {
+    return this.authService.getAccount().accountIdentifier;
+  }
+
   private getRequestBody(): any {
     return {
       name: this.scheduleNameValue.value,
-      ownerId: '',
+      ownerId: this.getUserId(),
       courses: this.coursesArray.value,
       classrooms: this.classroomsArray.value,
       students: this.studentsValue.value,
