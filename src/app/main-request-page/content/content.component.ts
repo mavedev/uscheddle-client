@@ -13,7 +13,7 @@ import { Course } from './course.model';
 })
 export class MainRequestPageContentComponent implements OnInit {
 
-  public coursesFormGroup: FormGroup;
+  public mainFormGroup: FormGroup;
   public errorText = '';
   private errors = {
     0: 'Connection refused. Please check your Internet connectivity',
@@ -34,22 +34,19 @@ export class MainRequestPageContentComponent implements OnInit {
   public ngOnInit(): void {
   }
 
+  public addCourseToTheForm(): void {
+    this.coursesArray.push(this.formBuilder.group(new Course()));
+  }
+
   private get coursesArray(): FormArray {
-    return this.coursesFormGroup.get('coursesArray') as FormArray;
+    return this.mainFormGroup.get('coursesArray') as FormArray;
   }
 
   private createCoursesForm(): void {
-    this.coursesFormGroup = this.formBuilder.group({
-      name: '',
-      classesType: '',
-      instructors: '',
-      hours: '',
+    this.mainFormGroup = this.formBuilder.group({
+      scheduleName: '',
       coursesArray: this.formBuilder.array([])
     });
-  }
-
-  private addCourseToTheForm(): void {
-    this.coursesArray.push(this.formBuilder.group(new Course()));
   }
 
   public sendGenerateRequest(): void {

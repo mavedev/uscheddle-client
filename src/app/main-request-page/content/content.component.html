@@ -4,19 +4,11 @@
   </div>
   <main class="main main_centered">
 
-    <form [formGroup]="coursesFormGroup">
+    <form [formGroup]="mainFormGroup">
       <div>
-        <input formControlName="name" placeholder="Name of a course">
+        <input formControlName="scheduleName" placeholder="Name of the schedule">
       </div>
-      <div>
-        <input formControlName="classesType" placeholder="Lecture or practice">
-      </div>
-      <div>
-        <input formControlName="instructors" placeholder="Instructors, separated by commas">
-      </div>
-      <div>
-        <input formControlName="hours" placeholder="Hours">
-      </div>
+      <button (click)="addCourseToTheForm()">Add course</button>
     </form>
 
     <!-- <div class="generate-form-wrapper generate-form-wrapper_centered">
