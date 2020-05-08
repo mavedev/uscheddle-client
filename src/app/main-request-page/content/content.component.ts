@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { MsalService } from '@azure/msal-angular';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { Course } from './course.model';
 
 @Component({
   selector: 'app-main-request-page-content',
@@ -33,6 +34,10 @@ export class MainRequestPageContentComponent implements OnInit {
   public ngOnInit(): void {
   }
 
+  private get coursesArray(): FormArray {
+    return this.coursesFormGroup.get('coursesArray') as FormArray;
+  }
+
   private createCoursesForm(): void {
     this.coursesFormGroup = this.formBuilder.group({
       name: '',
@@ -41,6 +46,10 @@ export class MainRequestPageContentComponent implements OnInit {
       hours: '',
       coursesArray: this.formBuilder.array([])
     });
+  }
+
+  private addCourseToTheForm(): void {
+    this.coursesArray.push(this.formBuilder.group(new Course()));
   }
 
   public sendGenerateRequest(): void {
