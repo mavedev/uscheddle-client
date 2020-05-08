@@ -129,7 +129,7 @@ export class MainRequestPageContentComponent implements OnInit {
       return;
     }
 
-    this.httpClient.post(this.createURL, {}, {
+    this.httpClient.post(this.createURL, this.getRequestBody(), {
       headers: { 'Content-Type': 'application/json' }
     })
     .subscribe({
