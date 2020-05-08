@@ -55,7 +55,10 @@ export class MainRequestPageContentComponent implements OnInit {
   }
 
   public addClassroomToTheForm(): void {
-    this.classroomsArray.push(this.formBuilder.group(new Classroom()));
+    this.classroomsArray.push(this.formBuilder.group({
+      classroomNumber: ['', [Validators.required]],
+      classroomType: ['', Validators.required]
+    }));
   }
 
   public get coursesArray(): FormArray {
