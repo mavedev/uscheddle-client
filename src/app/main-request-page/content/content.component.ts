@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MsalService } from '@azure/msal-angular';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 import { Course } from './models/course.model';
 import { Classroom } from './models/classroom.model';
 
@@ -37,7 +37,12 @@ export class MainRequestPageContentComponent implements OnInit {
   }
 
   public addCourseToTheForm(): void {
-    this.coursesArray.push(this.formBuilder.group(new Course()));
+    this.coursesArray.push(this.formBuilder.group({
+      name: ['', Validators.required],
+      courseType: ['', Validators.required],
+      instructors: ['', Validators.required],
+      hours: [0, Validators.required],
+    }));
   }
 
   public addClassroomToTheForm(): void {
@@ -60,6 +65,7 @@ export class MainRequestPageContentComponent implements OnInit {
   }
 
   private isFormValid(): boolean {
+    alert(this.coursesArray.status);
     return false;
   }
 
