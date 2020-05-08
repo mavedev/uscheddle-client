@@ -39,7 +39,7 @@ export class MainRequestPageContentComponent implements OnInit {
     this.coursesArray.push(this.formBuilder.group(new Course()));
   }
 
-  public addClassroomsToTheForm(): void {
+  public addClassroomToTheForm(): void {
     this.classroomsArray.push(this.formBuilder.group(new Classroom()));
   }
 

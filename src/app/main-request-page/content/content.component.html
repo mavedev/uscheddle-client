@@ -8,6 +8,7 @@
       <div>
         <input formControlName="scheduleName" placeholder="Name of the schedule">
       </div>
+
       <div formArrayName="coursesArray">
         <div *ngFor="let course of coursesArray.controls; let i = index" [formGroupName]="i">
           <input formControlName="name" placeholder="Course name">
@@ -16,7 +17,17 @@
           <input formControlName="hours" placeholder="Hours">
         </div>
       </div>
-      <button (click)="addCourseToTheForm()">Add course</button>
+
+      <button (click)="addCourseToTheForm()">Add a course</button>
+
+      <div formArrayName="classroomsArray">
+        <div *ngFor="let classroom of classroomsArray.controls; let i = index" [formGroupName]="i">
+          <input formControlName="classroomNumber" placeholder="Classroom number">
+          <input formControlName="classroomType" type="checkbox" value="Lecture-suitable or not">
+        </div>
+      </div>
+
+      <button (click)="addClassroomToTheForm()">Add a classroom</button>
     </form>
 
     <!-- <div class="generate-form-wrapper generate-form-wrapper_centered">
