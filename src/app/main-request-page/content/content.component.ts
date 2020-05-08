@@ -16,6 +16,7 @@ export class MainRequestPageContentComponent implements OnInit {
 
   public mainFormGroup: FormGroup;
   public errorText = '';
+  private readonly invalidErrorText = 'Some field are not filled properly. Please, check your input';
   private errors = {
     0: 'Connection refused. Please check your Internet connectivity',
     400: 'Server responded with "bad request". Please, check all the fields',
@@ -58,7 +59,16 @@ export class MainRequestPageContentComponent implements OnInit {
     });
   }
 
+  private isFormValid(): boolean {
+    return false;
+  }
+
   public sendGenerateRequest(): void {
+    if (!this.isFormValid()) {
+      this.errorText = this.invalidErrorText;
+      return;
+    }
+
     this.httpClient.post(this.createURL, {}, {
       headers: { 'Content-Type': 'application/json' }
     })
