@@ -105,3 +105,13 @@ $font-size-default-header: 2rem;
   margin-top: calc(#{$space-minimum} * 2);
   margin-bottom: calc(#{$space-minimum} * 2);
 }
+
+.form-check_without-spacing {
+  display: flex;
+  align-content: space-between;
+  margin: $space-minimum;
+}
+
+.form-check__label {
+  color: #000000;
+}

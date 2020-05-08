@@ -41,8 +41,10 @@
           class="main-form__course-inputs main-form__course-inputs_adapted">
           <input class="main-form__item main-form__item_adopted" formControlName="classroomNumber"
             placeholder="Classroom number">
-          <input class="main-form__item main-form__item_adopted main-form__item_last" formControlName="classroomType"
-            type="checkbox" value="Lecture-suitable or not">
+          <div class="form-check form-check_without-spacing">
+            <input forControlName="classroomType" type="checkbox" class="form-check-input">
+            <label class="form-check-label form-check__label">Lecture-suitable</label>
+          </div>
         </div>
       </div>
 
