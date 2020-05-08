@@ -8,7 +8,6 @@
       <div>
         <input formControlName="scheduleName" placeholder="Name of the schedule">
       </div>
-      <button (click)="addCourseToTheForm()">Add course</button>
       <div formArrayName="coursesArray">
         <div *ngFor="let course of coursesArray.controls; let i = index" [formGroupName]="i">
           <input formControlName="name" placeholder="Course name">
@@ -17,6 +16,7 @@
           <input formControlName="hours" placeholder="Hours">
         </div>
       </div>
+      <button (click)="addCourseToTheForm()">Add course</button>
     </form>
 
     <!-- <div class="generate-form-wrapper generate-form-wrapper_centered">
