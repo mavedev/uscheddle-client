@@ -80,7 +80,7 @@ $font-size-default-header: 2rem;
   width: 50vw;
 }
 
-.main-form_adjusted {
+.dynamic-form_adjusted {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -88,20 +88,20 @@ $font-size-default-header: 2rem;
   width: 50vw;
 }
 
-.main-form__course-inputs_adapted {
+.dynamic-form__course-inputs_adapted {
   display: flex;
   flex-direction: column;
 }
 
-.main-form__item_adopted {
+.dynamic-form__item_adopted {
   margin: $space-minimum;
 }
 
-.main-form__item_last {
+.dynamic-form__item_last {
   margin-bottom: calc(#{$space-minimum} * 3);
 }
 
-.main-form__button_adopted {
+.dynamic-form__button_adopted {
   margin-top: calc(#{$space-minimum} * 2);
   margin-bottom: calc(#{$space-minimum} * 2);
 }

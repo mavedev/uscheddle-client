@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 })
 export class MainRequestPageContentComponent implements OnInit {
 
-  public mainFormGroup: FormGroup;
+  public dynamicFormGroup: FormGroup;
   public errorText = '';
   private readonly invalidErrorText = 'Some field are not filled properly. Please, check your input';
   private errors = {
@@ -60,15 +60,15 @@ export class MainRequestPageContentComponent implements OnInit {
   }
 
   public get coursesArray(): FormArray {
-    return this.mainFormGroup.get('coursesArray') as FormArray;
+    return this.dynamicFormGroup.get('coursesArray') as FormArray;
   }
 
   public get classroomsArray(): FormArray {
-    return this.mainFormGroup.get('classroomsArray') as FormArray;
+    return this.dynamicFormGroup.get('classroomsArray') as FormArray;
   }
 
   private createCoursesForm(): void {
-    this.mainFormGroup = this.formBuilder.group({
+    this.dynamicFormGroup = this.formBuilder.group({
       coursesArray: this.formBuilder.array([]),
       classroomsArray: this.formBuilder.array([])
     });
