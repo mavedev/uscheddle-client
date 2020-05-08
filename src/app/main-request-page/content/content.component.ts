@@ -55,7 +55,7 @@ export class MainRequestPageContentComponent implements OnInit {
   public addClassroomToTheForm(): void {
     this.classroomsArray.push(this.formBuilder.group({
       classroomNumber: ['', [Validators.required]],
-      classroomType: [false, Validators.required]
+      isLectureSuitable: [false, Validators.required]
     }));
   }
 
@@ -79,11 +79,19 @@ export class MainRequestPageContentComponent implements OnInit {
       && this.classroomsArray.status === 'VALID';
   }
 
+  private getRequestBody(): any {
+    return {
+      classrooms: this.classroomsArray.value
+    } as const;
+  }
+
   public sendGenerateRequest(): void {
     if (!this.isFormValid()) {
       this.errorText = this.invalidErrorText;
       return;
     }
+
+    alert(JSON.stringify(this.getRequestBody()));
 
     this.httpClient.post(this.createURL, {}, {
       headers: { 'Content-Type': 'application/json' }
