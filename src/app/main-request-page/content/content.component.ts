@@ -43,11 +43,11 @@ export class MainRequestPageContentComponent implements OnInit {
     this.classroomsArray.push(this.formBuilder.group(new Classroom()));
   }
 
-  private get coursesArray(): FormArray {
+  public get coursesArray(): FormArray {
     return this.mainFormGroup.get('coursesArray') as FormArray;
   }
 
-  private get classroomsArray(): FormArray {
+  public get classroomsArray(): FormArray {
     return this.mainFormGroup.get('classroomsArray') as FormArray;
   }
 
