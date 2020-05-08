@@ -38,10 +38,19 @@ export class MainRequestPageContentComponent implements OnInit {
 
   public addCourseToTheForm(): void {
     this.coursesArray.push(this.formBuilder.group({
-      name: ['', Validators.required],
-      courseType: ['', Validators.required],
-      instructors: ['', Validators.required],
-      hours: [0, Validators.required],
+      name: ['', [Validators.required]],
+      courseType: ['', [Validators.required]],
+      instructors: ['', [
+          Validators.required,
+          Validators.pattern(/^\w+(,\w+)*$/)
+        ]
+      ],
+      hours: [0, [
+          Validators.required,
+          Validators.pattern(/^[1-9]+[0-9]*$/),
+          Validators.min(1)
+        ]
+      ],
     }));
   }
 
