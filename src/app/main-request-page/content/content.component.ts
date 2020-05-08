@@ -38,14 +38,14 @@ export class MainRequestPageContentComponent implements OnInit {
 
   public addCourseToTheForm(): void {
     this.coursesArray.push(this.formBuilder.group({
-      name: ['', [Validators.required]],
-      courseType: ['', [Validators.required]],
-      instructors: ['', [
+      courseName: ['', [Validators.required]],
+      courseClassesType: ['', [Validators.required]],
+      courseInstructors: ['', [
           Validators.required,
-          Validators.pattern(/^\s*\w+(,\s*\w+)*\s*$/)
+          Validators.pattern(/^\s*\w+(\s*,\s*(\w|\s)+)*\s*$/)
         ]
       ],
-      hours: [0, [
+      courseHours: [0, [
           Validators.required,
           Validators.pattern(/^[1-9]+[0-9]*$/),
           Validators.min(1)
@@ -124,8 +124,8 @@ export class MainRequestPageContentComponent implements OnInit {
     const result: any[] = [];
     courses.forEach(value => {
       const changedItem = Object. assign({}, value);
-      changedItem.instructors = this.getSeparetedInstructors(
-        changedItem.instructors
+      changedItem.courseInstructors = this.getSeparetedInstructors(
+        changedItem.courseInstructors
       );
       result.push(changedItem);
     });
@@ -137,7 +137,9 @@ export class MainRequestPageContentComponent implements OnInit {
     return {
       name: this.scheduleNameValue.value,
       ownerId: this.getUserId(),
-      courses: this.coursesArray.value,
+      courses: this.getCoursesWithSeparatedInstructors(
+        this.coursesArray.value
+      ),
       classrooms: this.classroomsArray.value,
       students: this.studentsValue.value,
       minInGroup: this.minInGroupValue.value

@@ -28,13 +28,14 @@
       <div formArrayName="coursesArray">
         <div *ngFor="let course of coursesArray.controls; let i = index" [formGroupName]="i"
           class="dynamic-form__course-inputs dynamic-form__course-inputs_adapted">
-          <input class="dynamic-form__item dynamic-form__item_adopted" formControlName="name" placeholder="Course name">
-          <input class="dynamic-form__item dynamic-form__item_adopted" formControlName="courseType"
+          <input class="dynamic-form__item dynamic-form__item_adopted" formControlName="courseName"
+            placeholder="Course name">
+          <input class="dynamic-form__item dynamic-form__item_adopted" formControlName="courseClassesType"
             placeholder="Lecture or practice">
-          <input class="dynamic-form__item dynamic-form__item_adopted" formControlName="instructors"
+          <input class="dynamic-form__item dynamic-form__item_adopted" formControlName="courseInstructors"
             placeholder="Instructors separated by commas">
-          <input class="dynamic-form__item dynamic-form__item_adopted dynamic-form__item_last" formControlName="hours"
-            placeholder="Hours">
+          <input class="dynamic-form__item dynamic-form__item_adopted dynamic-form__item_last"
+            formControlName="courseHours" placeholder="Hours">
         </div>
       </div>
 
