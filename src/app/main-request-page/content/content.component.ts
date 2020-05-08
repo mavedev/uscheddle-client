@@ -55,7 +55,7 @@ export class MainRequestPageContentComponent implements OnInit {
   public addClassroomToTheForm(): void {
     this.classroomsArray.push(this.formBuilder.group({
       classroomNumber: ['', [Validators.required]],
-      classroomType: ['', Validators.required]
+      classroomType: [false, Validators.required]
     }));
   }
 
@@ -75,7 +75,7 @@ export class MainRequestPageContentComponent implements OnInit {
   }
 
   private isFormValid(): boolean {
-    alert(this.coursesArray.status);
+    alert(JSON.stringify(this.classroomsArray.value));
     return false;
   }
 
