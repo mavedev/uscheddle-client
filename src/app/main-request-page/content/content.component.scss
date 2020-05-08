@@ -65,3 +65,18 @@ $font-size-default-header: 2rem;
   margin-top: $margin-top-default;
   text-align: center;
 }
+
+.main-form_centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-form__course-inputs_adapted {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-form__item_adopted {
+  margin: 5px;
+}

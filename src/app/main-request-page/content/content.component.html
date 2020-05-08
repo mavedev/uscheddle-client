@@ -4,13 +4,15 @@
   </div>
   <main class="main main_centered">
 
-    <form [formGroup]="mainFormGroup">
-      <div>
-        <input formControlName="scheduleName" placeholder="Name of the schedule">
-      </div>
+    <div>
+      <input id="scheduleName" placeholder="Name of the schedule">
+    </div>
+
+    <form [formGroup]="mainFormGroup" class="main-form main-form_centered">
 
       <div formArrayName="coursesArray">
-        <div *ngFor="let course of coursesArray.controls; let i = index" [formGroupName]="i">
+        <div *ngFor="let course of coursesArray.controls; let i = index" [formGroupName]="i"
+          class="main-form__course-inputs main-form__course-inputs_adapted">
           <input formControlName="name" placeholder="Course name">
           <input formControlName="courseType" placeholder="Lecture or practice">
           <input formControlName="instructors" placeholder="Instructors separated by commas">
@@ -21,9 +23,12 @@
       <button (click)="addCourseToTheForm()">Add a course</button>
 
       <div formArrayName="classroomsArray">
-        <div *ngFor="let classroom of classroomsArray.controls; let i = index" [formGroupName]="i">
-          <input formControlName="classroomNumber" placeholder="Classroom number">
-          <input formControlName="classroomType" type="checkbox" value="Lecture-suitable or not">
+        <div *ngFor="let classroom of classroomsArray.controls; let i = index" [formGroupName]="i"
+          class="main-form__course-inputs main-form__course-inputs_adapted">
+          <input class="main-form__item main-form__item_adopted" formControlName="classroomNumber"
+            placeholder="Classroom number">
+          <input class="main-form__item main-form__item_adopted" formControlName="classroomType" type="checkbox"
+            value="Lecture-suitable or not">
         </div>
       </div>
 

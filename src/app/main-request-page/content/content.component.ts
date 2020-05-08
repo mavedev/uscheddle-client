@@ -53,7 +53,6 @@ export class MainRequestPageContentComponent implements OnInit {
 
   private createCoursesForm(): void {
     this.mainFormGroup = this.formBuilder.group({
-      scheduleName: '',
       coursesArray: this.formBuilder.array([]),
       classroomsArray: this.formBuilder.array([])
     });
