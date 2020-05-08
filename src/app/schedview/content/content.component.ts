@@ -16,6 +16,7 @@ export class ShedviewContentComponent implements OnInit, AfterViewInit {
   private readonly apiReadURL = `${environment.apiURI}/schedule`;
 
   private scheduleId: string;
+  private scheduleData: any;
   private userId: string;
 
   public isAbleToLoad = true;
@@ -33,7 +34,7 @@ export class ShedviewContentComponent implements OnInit, AfterViewInit {
   }
 
   public ngAfterViewInit(): void {
-    const table = jexcel(document.getElementById('schedule-table'), {
+    const table = jexcel(document.getElementById('mon'), {
       data: [
         ['13:30-15:00', 'Бази даних', 'Гулаєва Н.М.', '1', '1-14', '1-223'],
         ['13:30-15:00', 'Бази даних', 'Гулаєва Н.М.', '1', '1-14', '1-223'],
@@ -82,13 +83,17 @@ export class ShedviewContentComponent implements OnInit, AfterViewInit {
     table.hideIndex();
   }
 
+  private fillTables(): void {
+    alert(JSON.stringify(this.scheduleData));
+  }
+
   private getScheduleData(): void {
     this.httpClient.get(
       `${this.apiReadURL}/${this.scheduleId}?senderId=${this.userId}`,
       { headers: { 'Content-Type': 'application/json' } }
     )
     .subscribe({
-      next: (_: any) => {  },
+      next: (scheduleData: any) => { this.scheduleData = scheduleData; this.fillTables(); },
       error: (_: any) => { this.isAbleToLoad = false; }
     });
   }
