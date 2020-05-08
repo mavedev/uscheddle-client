@@ -120,6 +120,19 @@ export class MainRequestPageContentComponent implements OnInit {
       .split(',');
   }
 
+  private getCoursesWithSeparatedInstructors(courses: any[]): any[] {
+    const result: any[] = [];
+    courses.forEach(value => {
+      const changedItem = Object. assign({}, value);
+      changedItem.instructors = this.getSeparetedInstructors(
+        changedItem.instructors
+      );
+      result.push(changedItem);
+    });
+
+    return result;
+  }
+
   private getRequestBody(): any {
     return {
       name: this.scheduleNameValue.value,
