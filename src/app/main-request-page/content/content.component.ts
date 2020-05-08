@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { Course } from './models/course.model';
+import { Classroom } from './models/classroom.model';
 
 @Component({
   selector: 'app-main-request-page-content',
@@ -38,14 +39,23 @@ export class MainRequestPageContentComponent implements OnInit {
     this.coursesArray.push(this.formBuilder.group(new Course()));
   }
 
+  public addClassroomsToTheForm(): void {
+    this.classroomsArray.push(this.formBuilder.group(new Classroom()));
+  }
+
   private get coursesArray(): FormArray {
     return this.mainFormGroup.get('coursesArray') as FormArray;
+  }
+
+  private get classroomsArray(): FormArray {
+    return this.mainFormGroup.get('classroomsArray') as FormArray;
   }
 
   private createCoursesForm(): void {
     this.mainFormGroup = this.formBuilder.group({
       scheduleName: '',
-      coursesArray: this.formBuilder.array([])
+      coursesArray: this.formBuilder.array([]),
+      classroomsArray: this.formBuilder.array([])
     });
   }
 
