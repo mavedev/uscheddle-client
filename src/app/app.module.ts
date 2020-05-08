@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { MsalModule } from '@azure/msal-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -43,7 +44,9 @@ import { ShedviewContentComponent } from './schedview/content/content.component'
     }, {
       consentScopes: ['https://graph.microsoft.com/User.ReadWrite']
     }),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
