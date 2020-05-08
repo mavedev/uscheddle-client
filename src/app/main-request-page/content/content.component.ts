@@ -12,6 +12,7 @@ import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 })
 export class MainRequestPageContentComponent implements OnInit {
 
+  public mainFormGroup: FormGroup;
   public dynamicFormGroup: FormGroup;
   public errorText = '';
   private readonly invalidErrorText = 'Some field are not filled properly. Please, check your input';
@@ -28,7 +29,8 @@ export class MainRequestPageContentComponent implements OnInit {
     private httpClient: HttpClient,
     private router: Router
   ) {
-    this.createCoursesForm();
+    this.createMainForm();
+    this.createDynamicForm();
   }
 
   public ngOnInit(): void {
@@ -59,6 +61,18 @@ export class MainRequestPageContentComponent implements OnInit {
     }));
   }
 
+  public get scheduleNameValue(): FormGroup {
+    return this.mainFormGroup.get('scheduleName') as FormGroup;
+  }
+
+  public get studentsValue(): FormGroup {
+    return this.mainFormGroup.get('students') as FormGroup;
+  }
+
+  public get minInGroupValue(): FormGroup {
+    return this.mainFormGroup.get('minInGroup') as FormGroup;
+  }
+
   public get coursesArray(): FormArray {
     return this.dynamicFormGroup.get('coursesArray') as FormArray;
   }
@@ -67,7 +81,15 @@ export class MainRequestPageContentComponent implements OnInit {
     return this.dynamicFormGroup.get('classroomsArray') as FormArray;
   }
 
-  private createCoursesForm(): void {
+  private createMainForm(): void {
+    this.mainFormGroup = this.formBuilder.group({
+      scheduleName: this.formBuilder.control(['', [Validators.required]]),
+      students: this.formBuilder.control(['', [Validators.required]]),
+      minInGroup: this.formBuilder.control(['', [Validators.required]]),
+    });
+  }
+
+  private createDynamicForm(): void {
     this.dynamicFormGroup = this.formBuilder.group({
       coursesArray: this.formBuilder.array([]),
       classroomsArray: this.formBuilder.array([])
