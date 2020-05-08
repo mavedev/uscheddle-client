@@ -1,5 +1,5 @@
 import { environment } from './../../../environments/environment';
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MsalService } from '@azure/msal-angular';
 import { HttpClient } from '@angular/common/http';
