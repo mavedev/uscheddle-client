@@ -81,6 +81,7 @@ export class MainRequestPageContentComponent implements OnInit {
 
   private getRequestBody(): any {
     return {
+      courses: this.coursesArray.value,
       classrooms: this.classroomsArray.value
     } as const;
   }
@@ -90,8 +91,6 @@ export class MainRequestPageContentComponent implements OnInit {
       this.errorText = this.invalidErrorText;
       return;
     }
-
-    alert(JSON.stringify(this.getRequestBody()));
 
     this.httpClient.post(this.createURL, {}, {
       headers: { 'Content-Type': 'application/json' }
