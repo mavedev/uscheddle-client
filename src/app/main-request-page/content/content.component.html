@@ -23,7 +23,8 @@
         </div>
       </div>
 
-      <button class="main-form__button main-form__button_adopted" (click)="addCourseToTheForm()">Add a course</button>
+      <button class="btn aqua-gradient main-form__button main-form__button_adopted" (click)="addCourseToTheForm()">Add a
+        course</button>
 
       <div formArrayName="classroomsArray">
         <div *ngFor="let classroom of classroomsArray.controls; let i = index" [formGroupName]="i"
@@ -35,7 +36,8 @@
         </div>
       </div>
 
-      <button (click)="addClassroomToTheForm()">Add a classroom</button>
+      <button class="btn aqua-gradient main-form__button main-form__button_adopted"
+        (click)="addClassroomToTheForm()">Add a classroom</button>
     </form>
 
     <!-- <div class="generate-form-wrapper generate-form-wrapper_centered">
