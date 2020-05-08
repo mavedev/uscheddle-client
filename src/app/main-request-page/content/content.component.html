@@ -4,7 +4,20 @@
   </div>
   <main class="main main_centered">
 
-    <form action=""></form>
+    <form [formGroup]="coursesFormGroup">
+      <div>
+        <input formControlName="name" placeholder="Name of a course">
+      </div>
+      <div>
+        <input formControlName="classesType" placeholder="Lecture or practice">
+      </div>
+      <div>
+        <input formControlName="instructors" placeholder="Instructors, separated by commas">
+      </div>
+      <div>
+        <input formControlName="hours" placeholder="Hours">
+      </div>
+    </form>
 
     <!-- <div class="generate-form-wrapper generate-form-wrapper_centered">
       <h4 class="generate-form-wrapper__title">
@@ -23,7 +36,7 @@
       </div>
     </div> -->
 
-    <div class="form-wrapper">
+    <!-- <div class="form-wrapper">
       <div class="md-form md-form_non-sticky">
         <div class="label-wrapper_tall">
           <label for="form58">Course description:</label>
@@ -32,7 +45,7 @@
         <input mdbInput placeholder="Description" type="text" id="form-course-description"
           class="form-control md-form__form-control-wide">
       </div>
-    </div>
+    </div> -->
 
     <button (click)="sendGenerateRequest()" class="btn purple-gradient btn-lg btn_tall">
       Generate

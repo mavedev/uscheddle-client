@@ -12,7 +12,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class MainRequestPageContentComponent implements OnInit {
 
-  public courseFormGroup: FormGroup;
+  public coursesFormGroup: FormGroup;
   public errorText = '';
   private errors = {
     0: 'Connection refused. Please check your Internet connectivity',
@@ -34,10 +34,11 @@ export class MainRequestPageContentComponent implements OnInit {
   }
 
   private createCoursesForm(): void {
-    this.courseFormGroup = this.formBuilder.group({
+    this.coursesFormGroup = this.formBuilder.group({
       name: '',
       classesType: '',
-      instructor: '',
+      instructors: '',
+      hours: '',
       coursesArray: this.formBuilder.array([])
     });
   }
