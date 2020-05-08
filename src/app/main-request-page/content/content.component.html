@@ -7,17 +7,18 @@
     <form [formGroup]="mainFormGroup">
       <div class="md-form md-form_adjusted">
         <div class="form-control separate-input-wrapper">
-          <input class="separate-input-wrapper__item_wide" id="scheduleName" placeholder="Name of the schedule"
-            required>
+          <input formControlName="scheduleName" class="separate-input-wrapper__item_wide" id="scheduleName"
+            placeholder="Name of the schedule">
         </div>
 
         <div class="form-control separate-input-wrapper separate-input-wrapper_tall">
-          <input class="separate-input-wrapper__item_wide" id="students" placeholder="Students amount" required>
+          <input formControlName="students" class="separate-input-wrapper__item_wide" id="students"
+            placeholder="Students amount">
         </div>
 
         <div class="form-control separate-input-wrapper separate-input-wrapper_tall">
-          <input class="separate-input-wrapper__item_wide" id="min-in-group" placeholder="Min students in one group"
-            required>
+          <input formControlName="minInGroup" class="separate-input-wrapper__item_wide" id="min-in-group"
+            placeholder="Min students in one group (min 10)">
         </div>
       </div>
     </form>

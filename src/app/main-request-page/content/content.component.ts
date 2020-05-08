@@ -83,9 +83,13 @@ export class MainRequestPageContentComponent implements OnInit {
 
   private createMainForm(): void {
     this.mainFormGroup = this.formBuilder.group({
-      scheduleName: this.formBuilder.control(['', [Validators.required]]),
-      students: this.formBuilder.control(['', [Validators.required]]),
-      minInGroup: this.formBuilder.control(['', [Validators.required]]),
+      scheduleName: this.formBuilder.control('', [Validators.required]),
+      students: this.formBuilder.control('', [Validators.required]),
+      minInGroup: this.formBuilder.control(0, [
+        Validators.required,
+        Validators.pattern(/^[1-9]+[0-9]*$/),
+        Validators.min(10)
+      ])
     });
   }
 
@@ -96,9 +100,12 @@ export class MainRequestPageContentComponent implements OnInit {
     });
   }
 
-  private isFormValid(): boolean {
+  private areAllTheFormsValid(): boolean {
     return this.coursesArray.status === 'VALID'
-      && this.classroomsArray.status === 'VALID';
+      && this.classroomsArray.status === 'VALID'
+      && this.scheduleNameValue.status === 'VALID'
+      && this.studentsValue.status === 'VALID'
+      && this.minInGroupValue.status === 'VALID';
   }
 
   private getRequestBody(): any {
@@ -109,7 +116,7 @@ export class MainRequestPageContentComponent implements OnInit {
   }
 
   public sendGenerateRequest(): void {
-    if (!this.isFormValid()) {
+    if (!this.areAllTheFormsValid()) {
       this.errorText = this.invalidErrorText;
       return;
     }
