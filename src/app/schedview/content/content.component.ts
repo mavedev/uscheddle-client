@@ -30,14 +30,14 @@ export class ShedviewContentComponent implements OnInit {
     this.getScheduleData();
   }
 
-  private getScheduleData() {
+  private getScheduleData(): void {
     this.httpClient.get(
       `${this.apiReadURL}/${this.scheduleId}?senderId=${this.userId}`,
       { headers: { 'Content-Type': 'application/json' } }
     )
     .subscribe({
       next: (_: any) => {  },
-      error: (_) => { this.isAbleToLoad = false; }
+      error: (_: any) => { this.isAbleToLoad = false; }
     });
   }
 
