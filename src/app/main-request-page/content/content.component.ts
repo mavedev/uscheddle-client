@@ -112,6 +112,14 @@ export class MainRequestPageContentComponent implements OnInit {
     return this.authService.getAccount().accountIdentifier;
   }
 
+  private getSeparetedInstructors(instructors: string): string[] {
+    return instructors
+      .replace(/\s+/g, ' ')
+      .replace(/\s*,\s*/g, ',')
+      .trim()
+      .split(',');
+  }
+
   private getRequestBody(): any {
     return {
       name: this.scheduleNameValue.value,
@@ -121,10 +129,6 @@ export class MainRequestPageContentComponent implements OnInit {
       students: this.studentsValue.value,
       minInGroup: this.minInGroupValue.value
     } as const;
-  }
-
-  private getSeparetedInstructors(instructors: string): string[] {
-    const trimmed = instructors.replace(/\s+/g, ' ').trim();
   }
 
   public sendGenerateRequest(): void {
