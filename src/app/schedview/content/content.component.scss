@@ -8,6 +8,12 @@ $margin-top-default: 50px;
 $border-radius-default: 5px;
 $font-size-default-header: 2rem;
 
+@media only screen and(min-width: 920px) {
+  .tables-wrapper {
+    margin-left: 100px;
+  }
+}
+
 .background-container {
   background-color: $color-background-header;
   background-image: url("~/assets/mx2-min.jpg");
@@ -64,6 +70,6 @@ $font-size-default-header: 2rem;
 }
 
 .edit-button-wrapper_with-spaces {
-  padding-top: $margin-top-default;
+  // padding-top: $margin-top-default;
   padding-bottom: $margin-top-default;
 }
