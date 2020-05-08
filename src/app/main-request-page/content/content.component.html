@@ -4,31 +4,34 @@
   </div>
   <main class="main main_centered">
 
-    <div>
+    <div class="separate-input-wrapper separate-input-wrapper_tall">
       <input id="scheduleName" placeholder="Name of the schedule">
     </div>
 
-    <form [formGroup]="mainFormGroup" class="main-form main-form_centered">
+    <form [formGroup]="mainFormGroup" class="main-form main-form_adjusted">
 
       <div formArrayName="coursesArray">
         <div *ngFor="let course of coursesArray.controls; let i = index" [formGroupName]="i"
           class="main-form__course-inputs main-form__course-inputs_adapted">
-          <input formControlName="name" placeholder="Course name">
-          <input formControlName="courseType" placeholder="Lecture or practice">
-          <input formControlName="instructors" placeholder="Instructors separated by commas">
-          <input formControlName="hours" placeholder="Hours">
+          <input class="main-form__item main-form__item_adopted" formControlName="name" placeholder="Course name">
+          <input class="main-form__item main-form__item_adopted" formControlName="courseType"
+            placeholder="Lecture or practice">
+          <input class="main-form__item main-form__item_adopted" formControlName="instructors"
+            placeholder="Instructors separated by commas">
+          <input class="main-form__item main-form__item_adopted main-form__item_last" formControlName="hours"
+            placeholder="Hours">
         </div>
       </div>
 
-      <button (click)="addCourseToTheForm()">Add a course</button>
+      <button class="main-form__button main-form__button_adopted" (click)="addCourseToTheForm()">Add a course</button>
 
       <div formArrayName="classroomsArray">
         <div *ngFor="let classroom of classroomsArray.controls; let i = index" [formGroupName]="i"
           class="main-form__course-inputs main-form__course-inputs_adapted">
           <input class="main-form__item main-form__item_adopted" formControlName="classroomNumber"
             placeholder="Classroom number">
-          <input class="main-form__item main-form__item_adopted" formControlName="classroomType" type="checkbox"
-            value="Lecture-suitable or not">
+          <input class="main-form__item main-form__item_adopted main-form__item_last" formControlName="classroomType"
+            type="checkbox" value="Lecture-suitable or not">
         </div>
       </div>
 

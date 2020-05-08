@@ -5,6 +5,8 @@ $color-card-background: #408AD2;
 
 // Sizes.
 $margin-top-default: 50px;
+$space-small: 20px;
+$space-minimum: 5px;
 $border-radius-default: 5px;
 $font-size-default-header: 2rem;
 
@@ -66,10 +68,16 @@ $font-size-default-header: 2rem;
   text-align: center;
 }
 
-.main-form_centered {
+.separate-input-wrapper_tall {
+  padding-top: $margin-top-default;
+}
+
+.main-form_adjusted {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-top: $space-small;
+  width: 50vw;
 }
 
 .main-form__course-inputs_adapted {
@@ -78,5 +86,14 @@ $font-size-default-header: 2rem;
 }
 
 .main-form__item_adopted {
-  margin: 5px;
+  margin: $space-minimum;
+}
+
+.main-form__item_last {
+  margin-bottom: calc(#{$space-minimum} * 3);
+}
+
+.main-form__button_adopted {
+  margin-top: calc(#{$space-minimum} * 2);
+  margin-bottom: calc(#{$space-minimum} * 2);
 }
