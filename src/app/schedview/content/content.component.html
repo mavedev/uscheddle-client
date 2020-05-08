@@ -2,6 +2,9 @@
   <div class="header-wrapper">
     <h3 class="header-title">View schedule</h3>
   </div>
-  <main class="main">
+  <main class="main main_warn">
+    <div *ngIf="!isAbleToLoad">
+      <h1>Sorry, the schedule can not be found :(</h1>
+    </div>
   </main>
 </div>

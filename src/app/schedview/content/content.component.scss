@@ -34,6 +34,12 @@ $font-size-default-header: 2rem;
   min-height: 100vh;
 }
 
+.main_warn {
+  color: red;
+  text-align: center;
+  padding-top: $margin-top-default;
+}
+
 .py-5_without-padding-below {
   padding-bottom: 0!important;
 }
