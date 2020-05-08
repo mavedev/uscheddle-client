@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MsalService } from '@azure/msal-angular';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-main-request-page-content',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class MainRequestPageContentComponent implements OnInit {
 
+  public courseFormGroup: FormGroup;
   public errorText = '';
   private errors = {
     0: 'Connection refused. Please check your Internet connectivity',
@@ -18,46 +20,30 @@ export class MainRequestPageContentComponent implements OnInit {
     500: 'The server is anavailible at the moment. Please, try again later'
   };
   private createURL = `${environment.apiURI}/generate`;
-  private testRequest = {
-    courses: [
-        {
-            courseName: 'name',
-            courseClassesType: 'lecture',
-            courseInstructor: [
-                'teacher1'
-            ],
-            courseHours: 50
-        },
-        {
-            courseName: 'name2',
-            courseClassesType: 'practice',
-            courseInstructor: [
-                'teacher1'
-            ],
-            courseHours: 100
-        }
-    ],
-    classrooms: [
-        {
-            classroomNumber: '1-223',
-            classroomType: 'lectureSuitable'
-        }
-    ],
-    students: 60,
-    minInGroup: 10
-} as const;
 
   public constructor(
+    private formBuilder: FormBuilder,
     private authService: MsalService,
     private httpClient: HttpClient,
     private router: Router
-  ) { }
+  ) {
+    this.createCoursesForm();
+  }
 
   public ngOnInit(): void {
   }
 
+  private createCoursesForm(): void {
+    this.courseFormGroup = this.formBuilder.group({
+      name: '',
+      classesType: '',
+      instructor: '',
+      coursesArray: this.formBuilder.array([])
+    });
+  }
+
   public sendGenerateRequest(): void {
-    this.httpClient.post(this.createURL, this.testRequest, {
+    this.httpClient.post(this.createURL, {}, {
       headers: { 'Content-Type': 'application/json' }
     })
     .subscribe({
