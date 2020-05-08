@@ -75,8 +75,8 @@ export class MainRequestPageContentComponent implements OnInit {
   }
 
   private isFormValid(): boolean {
-    alert(JSON.stringify(this.classroomsArray.value));
-    return false;
+    return this.coursesArray.status === 'VALID'
+      && this.classroomsArray.status === 'VALID';
   }
 
   public sendGenerateRequest(): void {
