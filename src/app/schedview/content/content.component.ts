@@ -104,7 +104,7 @@ export class ShedviewContentComponent implements OnInit {
       next: _ => {
         location.reload();
       },
-      error: _ => { alert('An error occured'); }
+      error: _ => { this.errorText = this.updateErrorText; }
     });
   }
 
@@ -119,7 +119,7 @@ export class ShedviewContentComponent implements OnInit {
       }
     ).subscribe({
       next: _ => { this.router.navigate(['/schedlist']); },
-      error: _ => { alert('An error occured'); }
+      error: _ => { this.errorText = this.deleteErrorText; }
     });
   }
 

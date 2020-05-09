@@ -84,6 +84,7 @@ $font-size-default-header: 2rem;
   display: flex;
   justify-content: center;
   color: red;
-  margin-top: $margin-top-default;
+  margin-top: -$margin-top-default;
+  margin-bottom: $margin-top-default;
   text-align: center;
 }
