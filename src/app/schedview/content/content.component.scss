@@ -6,6 +6,7 @@ $color-card-background: #408AD2;
 // Sizes.
 $margin-top-default: 50px;
 $border-radius-default: 5px;
+$button-width-default: 180px;
 $font-size-default-header: 2rem;
 
 @media only screen and(min-width: 920px) {
@@ -69,6 +70,12 @@ $font-size-default-header: 2rem;
   justify-content: center;
 }
 
-.edit-button-wrapper_with-spaces {
-  padding-bottom: $margin-top-default;
+.button-wrapper_with-spaces {
+  padding-bottom: calc(#{$margin-top-default} * 2);
+}
+
+.btn_bold {
+  font-weight: bold;
+  text-transform: uppercase;
+  width: $button-width-default;
 }

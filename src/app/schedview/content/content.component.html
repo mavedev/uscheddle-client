@@ -13,8 +13,9 @@
       <table class="schedule-table" id="sat"></table>
     </div>
 
-    <div *ngIf="isAbleToEdit" class="edit-button-wrapper edit-button-wrapper_with-spaces">
-      <button (click)="updateScheduleData()" class="btn aqua-gradient btn-lg">Resend updated</button>
+    <div *ngIf="isAbleToEdit" class="button-wrapper button-wrapper_with-spaces">
+      <button (click)="updateScheduleData()" class="btn aqua-gradient btn-lg btn_bold">Save changes</button>
+      <button (click)="updateScheduleData()" class="btn peach-gradient btn-lg btn_bold">Delete</button>
     </div>
 
     <div *ngIf="!isAbleToLoad">
