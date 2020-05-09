@@ -32,6 +32,10 @@ export class ShedviewContentComponent implements OnInit {
   public scheduleName = '';
   public isAbleToLoad = true;
   public isAbleToEdit = false;
+  public errorText = '';
+
+  private readonly updateErrorText = 'Sorry, there was an error during update';
+  private readonly deleteErrorText = 'Sorry, there was an error during deleting';
 
   public constructor(
     private router: Router,

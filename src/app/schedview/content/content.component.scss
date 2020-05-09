@@ -79,3 +79,11 @@ $font-size-default-header: 2rem;
   text-transform: uppercase;
   width: $button-width-default;
 }
+
+.error-text-wrapper {
+  display: flex;
+  justify-content: center;
+  color: red;
+  margin-top: $margin-top-default;
+  text-align: center;
+}

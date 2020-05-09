@@ -18,6 +18,10 @@
       <button (click)="deleteSchedule()" class="btn peach-gradient btn-lg btn_bold">Delete</button>
     </div>
 
+    <div class="error-text-wrapper">
+      <p>{{ errorText }}</p>
+    </div>
+
     <div *ngIf="!isAbleToLoad">
       <h1>Sorry, the schedule can not be found :(</h1>
     </div>
