@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { MsalService } from '@azure/msal-angular';
 import { environment } from './../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
@@ -6,7 +7,7 @@ import $ from 'jquery';
 import 'datatables';
 
 @Component({
-  selector: 'app-schedlist-content',
+  selector: 'app-searchlist-content',
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.scss']
 })
@@ -17,19 +18,20 @@ export class SearchlistContentComponent implements OnInit {
 
   constructor(
     private httpClient: HttpClient,
-    private authService: MsalService
+    private authService: MsalService,
+    private route: ActivatedRoute,
   ) { }
 
   private getUserId(): string {
     return this.authService.getAccount().accountIdentifier;
   }
 
-  private loadIds(): void {
+  private loadIds(scheduleName: string): void {
     this.httpClient.get(
       this.apiGetByOwnerUrl,
       {
         headers: { 'access-token': this.getUserId() },
-        params: { name: '' }
+        params: { name: scheduleName }
       }
     ).subscribe({
       next: (idsNamesPairs: any[]) => {
@@ -43,11 +45,12 @@ export class SearchlistContentComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    const scheduleName = this.route.snapshot.paramMap.get('schedule');
     // JQuery needed to use datatables with MDBootstrap.
     // FIXME: remove JQuery at the next version.
     this.table = $('.dt-schedules').DataTable();
     $('.dataTables_length').addClass('bs-select');
-    this.loadIds();
+    this.loadIds(scheduleName);
   }
 
 }

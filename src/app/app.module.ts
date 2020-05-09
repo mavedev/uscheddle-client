@@ -17,7 +17,7 @@ import { MainRequestPageContentComponent } from './main-request-page/content/con
 import { SchedviewComponent } from './schedview/schedview.component';
 import { ShedviewContentComponent } from './schedview/content/content.component';
 import { SearchlistComponent } from './searchlist/searchlist.component';
-import { ContentComponent } from './searchlist/content/content.component';
+import { SearchlistContentComponent } from './searchlist/content/content.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import { ContentComponent } from './searchlist/content/content.component';
     SchedviewComponent,
     ShedviewContentComponent,
     SearchlistComponent,
-    ContentComponent
+    SearchlistContentComponent
   ],
   imports: [
     BrowserModule,
