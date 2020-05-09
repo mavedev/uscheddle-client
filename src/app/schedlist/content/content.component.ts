@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-declare const $: any;
+import $ from 'jquery';
+import 'datatables';
 
 @Component({
   selector: 'app-schedlist-content',
