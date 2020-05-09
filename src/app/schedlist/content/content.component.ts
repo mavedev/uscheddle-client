@@ -1,4 +1,7 @@
+import { MsalService } from '@azure/msal-angular';
+import { environment } from './../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import $ from 'jquery';
 import 'datatables';
 
@@ -9,19 +12,40 @@ import 'datatables';
 })
 export class SchedlistContentComponent implements OnInit {
 
-  names: Array<string> = ['A', 'B', 'f'];
+  private readonly apiGetByOwnerUrl = `${environment.apiURI}/schedules`;
+  private table: any;
 
-  constructor() { }
+  constructor(
+    private httpClient: HttpClient,
+    private authService: MsalService
+  ) { }
 
-  ngOnInit(): void {
+  private getUserId(): string {
+    return this.authService.getAccount().accountIdentifier;
+  }
+
+  private loadIds(): void {
+    this.httpClient.get(
+      this.apiGetByOwnerUrl,
+      {
+        headers: { 'access-token': this.getUserId() }
+      }
+    ).subscribe({
+      next: (ids: string[]) => {
+        ids.forEach(value => {
+          this.table.row.add([`<a href="schedview/${value}">link</a>`]).draw();
+        });
+      },
+      error: _ => { }
+    });
+  }
+
+  public ngOnInit(): void {
     // JQuery needed to use datatables with MDBootstrap.
     // FIXME: remove JQuery at the next version.
-    const table: any = $('.dt-schedules').DataTable();
+    this.table = $('.dt-schedules').DataTable();
     $('.dataTables_length').addClass('bs-select');
-
-    this.names.forEach(value => {
-      table.row.add(value).draw();
-    });
+    this.loadIds();
   }
 
 }
