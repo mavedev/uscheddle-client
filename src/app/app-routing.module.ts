@@ -24,7 +24,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'searchlist/:schedule',
+    path: 'searchlist',
     component: SearchlistComponent,
     canActivate: [
       MsalGuard

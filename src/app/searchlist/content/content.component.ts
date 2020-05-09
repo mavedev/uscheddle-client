@@ -45,7 +45,7 @@ export class SearchlistContentComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    const scheduleName = this.route.snapshot.paramMap.get('schedule');
+    const scheduleName = this.route.snapshot.queryParamMap.get('schedule');
     // JQuery needed to use datatables with MDBootstrap.
     // FIXME: remove JQuery at the next version.
     this.table = $('.dt-schedules').DataTable();
