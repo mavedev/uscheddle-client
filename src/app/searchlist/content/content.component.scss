@@ -1,0 +1,49 @@
+// Colors.
+$color-background-header: rgb(78, 155, 218);
+$color-empty: #fff;
+$color-card-background: #408AD2;
+
+// Sizes.
+$margin-top-default: 50px;
+$border-radius-default: 5px;
+$font-size-default-header: 2rem;
+
+.background-container {
+  background-color: $color-background-header;
+  background-image: url("~/assets/mx2-min.jpg");
+  background-size: cover;
+  color: $color-empty;
+  text-align: left;
+  font-family: 'Baloo Bhaina 2';
+  padding-top: 0!important;
+}
+
+.header-wrapper {
+  background-color: rgba($color: #000000, $alpha: .5);
+  padding-top: $margin-top-default;
+  padding-bottom: $margin-top-default;
+  padding-left: $margin-top-default;
+}
+
+.header-title {
+  font-size: $font-size-default-header;
+}
+
+.main {
+  background-color: $color-empty;
+  min-height: 100vh;
+}
+
+.py-5_without-padding-below {
+  padding-bottom: 0!important;
+}
+
+.gen-button-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: $margin-top-default;
+}
+
+.dt-wrapper {
+  padding: $margin-top-default;
+}
