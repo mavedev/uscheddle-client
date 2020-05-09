@@ -1,6 +1,6 @@
 import { environment } from './../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MsalService } from '@azure/msal-angular';
 import { HttpClient } from '@angular/common/http';
 
@@ -14,6 +14,7 @@ declare const jexcel: any;
 export class ShedviewContentComponent implements OnInit {
 
   private readonly apiReadURL = `${environment.apiURI}/schedule`;
+  private readonly apiEditUrl = `${environment.apiURI}/edit`;
   private readonly columns = [
       { type: 'text', title: 'Time', width: 120 },
       { type: 'text', title: 'Course', width: 120 },
@@ -32,6 +33,7 @@ export class ShedviewContentComponent implements OnInit {
   public isAbleToEdit = false;
 
   public constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private httpClient: HttpClient,
     private authService: MsalService
@@ -70,12 +72,34 @@ export class ShedviewContentComponent implements OnInit {
     });
   }
 
-  public updateScheduleData(): void {
-    const request: any = {};
-    request.id = this.scheduleId;
-    request.name = this.scheduleName;
+  private getUpdatedSchedule(): any {
+    const updatedSchedule: any = {};
+    updatedSchedule.name = this.scheduleName;
     Object.keys(this.tables).forEach(day => {
-      request[day] = this.tables[day].getData();
+      updatedSchedule[day] = this.tables[day].getData();
+    });
+    return updatedSchedule;
+  }
+
+  private getUpdateRequest(): any {
+    const request: any = {};
+    request.updatedSchedule = this.getUpdatedSchedule();
+    request.senderId = this.userId;
+    return request;
+  }
+
+  public updateScheduleData(): void {
+    this.httpClient.put(
+      `${this.apiEditUrl}/${this.scheduleId}`,
+      this.getUpdateRequest(),
+      {
+        headers: { 'Content-Type': 'application/json' }
+      }
+    ).subscribe({
+      next: (data: any) => {
+        this.router.navigate(['/schedview', data.id]);
+      },
+      error: _ => { alert('An error occured'); }
     });
   }
 
