@@ -1,6 +1,6 @@
 import { environment } from './../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MsalService } from '@azure/msal-angular';
 import { HttpClient } from '@angular/common/http';
 
@@ -15,6 +15,7 @@ export class ShedviewContentComponent implements OnInit {
 
   private readonly apiReadURL = `${environment.apiURI}/schedule`;
   private readonly apiEditUrl = `${environment.apiURI}/edit`;
+  private readonly apiDeleteUrl = `${environment.apiURI}/delete`;
   private readonly columns = [
       { type: 'text', title: 'Time', width: 120 },
       { type: 'text', title: 'Course', width: 120 },
@@ -33,6 +34,7 @@ export class ShedviewContentComponent implements OnInit {
   public isAbleToEdit = false;
 
   public constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private httpClient: HttpClient,
     private authService: MsalService
@@ -98,6 +100,21 @@ export class ShedviewContentComponent implements OnInit {
       next: _ => {
         location.reload();
       },
+      error: _ => { alert('An error occured'); }
+    });
+  }
+
+  public deleteSchedule(): void {
+    this.httpClient.delete(
+      `${this.apiDeleteUrl}/${this.scheduleId}`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-token': this.userId
+        }
+      }
+    ).subscribe({
+      next: _ => { this.router.navigate(['/schedlist']); },
       error: _ => { alert('An error occured'); }
     });
   }
