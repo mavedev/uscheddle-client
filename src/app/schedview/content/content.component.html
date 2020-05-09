@@ -14,7 +14,7 @@
     </div>
 
     <div *ngIf="isAbleToEdit" class="edit-button-wrapper edit-button-wrapper_with-spaces">
-      <button class="btn aqua-gradient btn-lg">Resend updated</button>
+      <button (click)="updateScheduleData()" class="btn aqua-gradient btn-lg">Resend updated</button>
     </div>
 
     <div *ngIf="!isAbleToLoad">

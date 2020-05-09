@@ -55,7 +55,7 @@ export class ShedviewContentComponent implements OnInit {
         nestedHeaders: [{ title: day, colspan: 6 }],
       });
       table.hideIndex();
-      this.tables[day] = table;
+      this.tables[day.toLowerCase()] = table;
     });
   }
 
@@ -71,7 +71,12 @@ export class ShedviewContentComponent implements OnInit {
   }
 
   public updateScheduleData(): void {
-    alert(this.tables.mon.getData());
+    const request: any = {};
+    request.id = this.scheduleId;
+    request.name = this.scheduleName;
+    Object.keys(this.tables).forEach(day => {
+      request[day] = this.tables[day].getData();
+    });
   }
 
 }
