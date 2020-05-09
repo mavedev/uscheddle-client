@@ -31,9 +31,10 @@ export class SchedlistContentComponent implements OnInit {
         headers: { 'access-token': this.getUserId() }
       }
     ).subscribe({
-      next: (ids: string[]) => {
-        ids.forEach(value => {
-          this.table.row.add([`<a href="schedview/${value}">link</a>`]).draw();
+      next: (idsNamesPairs: any[]) => {
+        idsNamesPairs.forEach(value => {
+          const {id, name} = value;
+          this.table.row.add([`<a href="schedview/${id}">${name}</a>`]).draw();
         });
       },
       error: _ => { }
