@@ -1,6 +1,6 @@
 import { environment } from './../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { MsalService } from '@azure/msal-angular';
 import { HttpClient } from '@angular/common/http';
 
@@ -33,7 +33,6 @@ export class ShedviewContentComponent implements OnInit {
   public isAbleToEdit = false;
 
   public constructor(
-    private router: Router,
     private route: ActivatedRoute,
     private httpClient: HttpClient,
     private authService: MsalService
@@ -96,8 +95,8 @@ export class ShedviewContentComponent implements OnInit {
         headers: { 'Content-Type': 'application/json' }
       }
     ).subscribe({
-      next: (data: any) => {
-        this.router.navigate(['/schedview', data.id]);
+      next: _ => {
+        location.reload();
       },
       error: _ => { alert('An error occured'); }
     });
