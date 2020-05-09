@@ -25,7 +25,7 @@ export class ShedviewContentComponent implements OnInit {
 
   private scheduleId: string;
   private userId: string;
-  private tables: any[] = [];
+  private tables: any = {};
 
   public scheduleName = '';
   public isAbleToLoad = true;
@@ -55,7 +55,7 @@ export class ShedviewContentComponent implements OnInit {
         nestedHeaders: [{ title: day, colspan: 6 }],
       });
       table.hideIndex();
-      this.tables.push({ [day]: table });
+      this.tables[day] = table;
     });
   }
 
@@ -68,6 +68,10 @@ export class ShedviewContentComponent implements OnInit {
       next: (scheduleData: any) => { this.fillTables(scheduleData); },
       error: (_: any) => { this.isAbleToLoad = false; }
     });
+  }
+
+  public updateScheduleData(): void {
+    alert(this.tables.mon.getData());
   }
 
 }
