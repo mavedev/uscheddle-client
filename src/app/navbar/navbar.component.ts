@@ -26,7 +26,10 @@ export class NavbarComponent implements OnInit {
   }
 
   public search(): void {
-    this.router.navigate(['searchlist'], { queryParams: { schedule: this.scheduleName } });
+    this.router.navigateByUrl('/', { skipLocationChange: true })
+      .then(() => {
+        this.router.navigate(['searchlist'], { queryParams: { schedule: this.scheduleName } });
+    });
   }
 
 }
