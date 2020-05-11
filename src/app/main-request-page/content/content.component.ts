@@ -65,8 +65,12 @@ export class MainRequestPageContentComponent implements OnInit {
     return this.mainFormGroup.get('scheduleName') as FormGroup;
   }
 
-  public get studentsValue(): FormGroup {
-    return this.mainFormGroup.get('students') as FormGroup;
+  public get classesInDayValue(): FormGroup {
+    return this.mainFormGroup.get('classesInDay') as FormGroup;
+  }
+
+  public get weeksValue(): FormGroup {
+    return this.mainFormGroup.get('weeks') as FormGroup;
   }
 
   public get minInGroupValue(): FormGroup {
@@ -111,7 +115,8 @@ export class MainRequestPageContentComponent implements OnInit {
     return this.coursesArray.status === 'VALID'
       && this.classroomsArray.status === 'VALID'
       && this.scheduleNameValue.status === 'VALID'
-      && this.studentsValue.status === 'VALID'
+      && this.classesInDayValue.status === 'VALID'
+      && this.weeksValue.status === 'VALID'
       && this.minInGroupValue.status === 'VALID';
   }
 
@@ -148,7 +153,8 @@ export class MainRequestPageContentComponent implements OnInit {
         this.coursesArray.value
       ),
       classrooms: this.classroomsArray.value,
-      students: this.studentsValue.value,
+      classesInDay: this.classesInDayValue,
+      weeks: this.weeksValue.value,
       minInGroup: this.minInGroupValue.value
     } as const;
   }
