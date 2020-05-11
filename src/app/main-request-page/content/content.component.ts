@@ -84,6 +84,10 @@ export class MainRequestPageContentComponent implements OnInit {
   private createMainForm(): void {
     this.mainFormGroup = this.formBuilder.group({
       scheduleName: this.formBuilder.control('', [Validators.required]),
+      classesInDay: this.formBuilder.control('', [
+        Validators.required,
+        Validators.pattern(/^[1-9]+[0-9]*$/),
+      ]),
       weeks: this.formBuilder.control('', [
         Validators.required,
         Validators.pattern(/^[1-9]+[0-9]*$/),
