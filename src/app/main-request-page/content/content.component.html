@@ -34,12 +34,16 @@
           class="dynamic-form__course-inputs dynamic-form__course-inputs_adapted">
           <input class="dynamic-form__item dynamic-form__item_adopted" formControlName="courseName"
             placeholder="Course name">
-          <input class="dynamic-form__item dynamic-form__item_adopted" formControlName="courseClassesType"
-            placeholder="Lecture or practice">
+          <div class="form-check form-check_without-spacing">
+            <input formControlName="isLecture" type="checkbox" class="form-check-input">
+            <label class="form-check-label form-check__label">Is lecture</label>
+          </div>
           <input class="dynamic-form__item dynamic-form__item_adopted" formControlName="courseInstructors"
             placeholder="Instructors separated by commas">
           <input class="dynamic-form__item dynamic-form__item_adopted dynamic-form__item_last"
-            formControlName="courseHours" placeholder="Hours">
+            formControlName="courseClasses" placeholder="Classes amount">
+          <input class="dynamic-form__item dynamic-form__item_adopted dynamic-form__item_last"
+            formControlName="courseStudents" placeholder="Students listening">
         </div>
       </div>
 

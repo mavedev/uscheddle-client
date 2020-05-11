@@ -39,18 +39,24 @@ export class MainRequestPageContentComponent implements OnInit {
   public addCourseToTheForm(): void {
     this.coursesArray.push(this.formBuilder.group({
       courseName: ['', [Validators.required]],
-      courseClassesType: ['', [Validators.required]],
+      isLecture: [false, Validators.required],
       courseInstructors: ['', [
           Validators.required,
           Validators.pattern(/^\s*\w+(\s*,\s*(\w|\s)+)*\s*$/)
         ]
       ],
-      courseHours: [0, [
+      courseClasses: ['', [
           Validators.required,
           Validators.pattern(/^[1-9]+[0-9]*$/),
           Validators.min(1)
         ]
       ],
+      courseStudents: ['', [
+        Validators.required,
+        Validators.pattern(/^[1-9]+[0-9]*$/),
+        Validators.min(1)
+      ]
+    ],
     }));
   }
 
@@ -112,12 +118,14 @@ export class MainRequestPageContentComponent implements OnInit {
   }
 
   private areAllTheFormsValid(): boolean {
-    return this.coursesArray.status === 'VALID'
+    const x = this.coursesArray.status === 'VALID'
       && this.classroomsArray.status === 'VALID'
       && this.scheduleNameValue.status === 'VALID'
       && this.classesInDayValue.status === 'VALID'
       && this.weeksValue.status === 'VALID'
       && this.minInGroupValue.status === 'VALID';
+    alert(x);
+    return x;
   }
 
   private getUserId(): string {
@@ -162,13 +170,11 @@ export class MainRequestPageContentComponent implements OnInit {
   public sendGenerateRequest(): void {
     if (!this.areAllTheFormsValid()) {
       this.errorText = this.invalidErrorText;
-      return;
     } else {
       this.errorText = '';
     }
 
     const body = this.getRequestBody();
-    alert(JSON.stringify(body));
 
     this.httpClient.post(this.createURL, body, {
       headers: { 'Content-Type': 'application/json' }
@@ -177,8 +183,9 @@ export class MainRequestPageContentComponent implements OnInit {
       next: (data: any) => {
         this.router.navigate(['/schedview', data.id]);
       },
-      error: error => {
-        this.errorText = this.errors[error.status];
+      error: err => {
+        alert(JSON.stringify(err));
+        this.errorText = this.errors[err.status];
       }
     });
   }
