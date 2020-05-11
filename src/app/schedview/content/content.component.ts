@@ -17,11 +17,11 @@ export class ShedviewContentComponent implements OnInit {
   private readonly apiEditUrl = `${environment.apiURI}/edit`;
   private readonly apiDeleteUrl = `${environment.apiURI}/delete`;
   private readonly columns = [
-      { type: 'text', title: 'Time', width: 120 },
+      { type: 'text', title: 'Classes number', width: 120 },
       { type: 'text', title: 'Course', width: 120 },
       { type: 'text', title: 'Instructor', width: 120 },
       { type: 'text', title: 'Group', width: 120 },
-      { type: 'text', title: 'Weeks', width: 120 },
+      { type: 'text', title: 'Type', width: 120 },
       { type: 'text', title: 'Classroom', width: 120 },
   ];
 
