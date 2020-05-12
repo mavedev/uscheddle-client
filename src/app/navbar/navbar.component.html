@@ -16,7 +16,7 @@
     <!-- Links -->
     <ul class="navbar-nav mr-auto">
       <li class="nav-item nav-item_wide">
-        <a class="nav-link" href="#">Home</a>
+        <a class="nav-link" routerLink="" routerLinkActive="active">Home</a>
       </li>
       <li class="nav-item nav-item_wide">
         <a class="nav-link" href="assets/tutorial.docx">Help</a>
@@ -25,7 +25,7 @@
         <a class="nav-link" (click)="logout()">Log out</a>
       </li>
       <li *ngIf="!isAuthentified" class="nav-item nav-item_wide">
-        <a class="nav-link" href="schedlist">View my schedules</a>
+        <a class="nav-link" routerLink="schedlist" routerLinkActive="active">View my schedules</a>
       </li>
     </ul>
     <!-- Links -->
