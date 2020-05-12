@@ -42,7 +42,7 @@ export class MainRequestPageContentComponent implements OnInit {
       isLecture: [false, Validators.required],
       courseInstructors: ['', [
           Validators.required,
-          Validators.pattern(/^\s*\w+(\s*,\s*(\w|\s)+)*\s*$/)
+          Validators.pattern(/^\s*[^,]+(\w|\s|,[^,])*[^,]+\s*$/)
         ]
       ],
       courseClasses: ['', [
