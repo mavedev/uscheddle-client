@@ -4,8 +4,8 @@ $color-empty: #fff;
 $color-card-background: #408AD2;
 
 // Sizes.
-$height-image-demo: 50vw;
-$width-image-demo: 65vw;
+$height-image-demo: 35vw;
+$width-image-demo: 45vw;
 $width-card-default: 25vw;
 $width-card-adopted: 60vw;
 $margin-top-default: 50px;
@@ -23,6 +23,7 @@ $font-size-default-header: 5rem;
   .image-demo__content {
     content: url("~/assets/smartphone.png");
     height: 100vw!important;
+    width: 65vw!important;
   }
 
   .cards-container__card-wrapper {
@@ -113,6 +114,6 @@ $font-size-default-header: 5rem;
 }
 
 .card-img-top {
-  width: 50%;
-  height: 50%;
+  width: 200px;
+  height: 200px;
 }
