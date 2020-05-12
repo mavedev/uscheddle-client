@@ -19,7 +19,7 @@ export class MainRequestPageContentComponent implements OnInit {
   private errors = {
     0: 'Connection refused. Please check your Internet connectivity',
     400: 'Server responded with "bad request". Please, check all the fields',
-    500: 'The server is anavailible at the moment. Please, try again later'
+    500: 'The server is unavailible at the moment. Please, try again later'
   };
   private createURL = `${environment.apiURI}/generate`;
 
@@ -118,14 +118,12 @@ export class MainRequestPageContentComponent implements OnInit {
   }
 
   private areAllTheFormsValid(): boolean {
-    const x = this.coursesArray.status === 'VALID'
+    return this.coursesArray.status === 'VALID'
       && this.classroomsArray.status === 'VALID'
       && this.scheduleNameValue.status === 'VALID'
       && this.classesInDayValue.status === 'VALID'
       && this.weeksValue.status === 'VALID'
       && this.minInGroupValue.status === 'VALID';
-    alert(x);
-    return x;
   }
 
   private getUserId(): string {
@@ -161,7 +159,7 @@ export class MainRequestPageContentComponent implements OnInit {
         this.coursesArray.value
       ),
       classrooms: this.classroomsArray.value,
-      classesInDay: this.classesInDayValue,
+      classesInDay: this.classesInDayValue.value,
       weeks: this.weeksValue.value,
       minInGroup: this.minInGroupValue.value
     } as const;
@@ -170,12 +168,12 @@ export class MainRequestPageContentComponent implements OnInit {
   public sendGenerateRequest(): void {
     if (!this.areAllTheFormsValid()) {
       this.errorText = this.invalidErrorText;
+      return;
     } else {
       this.errorText = '';
     }
 
     const body = this.getRequestBody();
-
     this.httpClient.post(this.createURL, body, {
       headers: { 'Content-Type': 'application/json' }
     })
@@ -184,7 +182,6 @@ export class MainRequestPageContentComponent implements OnInit {
         this.router.navigate(['/schedview', data.id]);
       },
       error: err => {
-        alert(JSON.stringify(err));
         this.errorText = this.errors[err.status];
       }
     });
